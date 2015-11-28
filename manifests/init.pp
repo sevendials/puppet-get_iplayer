@@ -23,19 +23,21 @@
 #
 # === Examples
 #
-#  class { 'get_iplayer':
-#    servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
-#  }
+#  class { 'get_iplayer': }
 #
 # === Authors
 #
-# Author Name <author@domain.com>
+# Christopher Jenkins <christj@gmail.com>
 #
 # === Copyright
 #
-# Copyright 2015 Your name here, unless otherwise noted.
+# Copyright 2015 Christopher Jenkins, unless otherwise noted.
 #
-class get_iplayer {
+class get_iplayer (
+) inherits get_iplayer::params {
 
-
+  anchor { 'get_iplayer::begin': } ->
+  class { '::get_iplayer::install': } ->
+  anchor { 'get_iplayer::end': }
+  
 }
