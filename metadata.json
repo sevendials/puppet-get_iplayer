@@ -1,0 +1,14 @@
+{
+  "name": "sevendials-get_iplayer",
+  "version": "0.1.0",
+  "author": "sevendials",
+  "summary": "Module for installing get_iplayer",
+  "license": "GPL 2.0",
+  "source": "git://github.com/sevendials/puppet-get_iplayer.git",
+  "project_page": "https://github.com/sevendials/puppet-get_iplayer",
+  "issues_url": "https://github.com/sevendials/puppet-get_iplayer/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ]
+}
+
