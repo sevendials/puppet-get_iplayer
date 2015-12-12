@@ -15,7 +15,7 @@ class get_iplayer::params {
 
   case $::osfamily {
     "RedHat": {
-      if versioncmp($::operatingsystemrelease, '7') >= 0 ) {
+      if versioncmp($::operatingsystemrelease, '7') >= 0 {
         $service_template = 'get_iplayer/systemd.erb'
         $service_path     = '/lib/systemd/system/get_iplayer.service'
       }
