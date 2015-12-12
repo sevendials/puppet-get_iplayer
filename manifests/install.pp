@@ -8,7 +8,7 @@ class get_iplayer::install inherits get_iplayer {
   }
   ->
   file { 'get_iplayer.bin':
-    name    => '/usr/bin/get_iplayer'
+    name    => '/usr/bin/get_iplayer',
     ensure  => 'link',
     target  => "/usr/local/get_iplayer-${get_iplayer::version}/get_iplayer",
   }
