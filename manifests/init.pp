@@ -38,6 +38,7 @@ class get_iplayer (
   $version                = $get_iplayer::params::version,
   $prereqs                = $get_iplayer::params::prereqs,
   $options                = $get_iplayer::params::options,
+  $options_extra          = {},
 ) inherits get_iplayer::params {
 
   anchor { 'get_iplayer::begin': } ->
