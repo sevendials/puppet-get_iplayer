@@ -25,4 +25,9 @@ class get_iplayer::config inherits get_iplayer {
     content => $opts_content,
   }
 
+  file { 'get_iplayer.service_env':
+    path    => $get_iplayer::service_env_path,
+    content => template($get_iplayer::service_env_template),
+  }
+
 }

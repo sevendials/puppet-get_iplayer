@@ -45,6 +45,8 @@ class get_iplayer (
   $basedir                = $get_iplayer::params::basedir,
   $service_template       = $get_iplayer::params::service_template,
   $service_path           = $get_iplayer::params::service_path,
+  $service_env_template   = $get_iplayer::params::service_template,
+  $service_env_path       = $get_iplayer::params::service_path,
 ) inherits get_iplayer::params {
 
   anchor { 'get_iplayer::begin': } ->

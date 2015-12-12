@@ -24,6 +24,9 @@ class get_iplayer::params {
         $service_path     = '/etc/init.d/get_iplayer'
       }
 
+      $service_env_template = 'get_iplayer/service_env.erb'
+      $service_env_path     = '/etc/sysconfig/get_iplayer'
+
       $prereqs  = [
         "perl",
         "perl-Env",
