@@ -36,6 +36,7 @@
 class get_iplayer (
   $conf_dir     = $get_iplayer::params::conf_dir,
   $version      = $get_iplayer::params::version,
+  $prereqs      = $get_iplayer::params::prereqs,
 ) inherits get_iplayer::params {
 
   anchor { 'get_iplayer::begin': } ->
