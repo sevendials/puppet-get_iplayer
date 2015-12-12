@@ -34,10 +34,13 @@
 # Copyright 2015 Christopher Jenkins, unless otherwise noted.
 #
 class get_iplayer (
+  $conf_dir     = $get_iplayer::params::conf_dir,
+  $version      = $get_iplayer::params::version,
 ) inherits get_iplayer::params {
 
   anchor { 'get_iplayer::begin': } ->
   class { '::get_iplayer::install': } ->
+  class { '::get_iplayer::config': } ->
   anchor { 'get_iplayer::end': }
   
 }
