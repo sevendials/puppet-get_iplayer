@@ -34,9 +34,10 @@
 # Copyright 2015 Christopher Jenkins, unless otherwise noted.
 #
 class get_iplayer (
-  $conf_dir     = $get_iplayer::params::conf_dir,
-  $version      = $get_iplayer::params::version,
-  $prereqs      = $get_iplayer::params::prereqs,
+  $conf_dir               = $get_iplayer::params::conf_dir,
+  $version                = $get_iplayer::params::version,
+  $prereqs                = $get_iplayer::params::prereqs,
+  $options                = $get_iplayer::params::options,
 ) inherits get_iplayer::params {
 
   anchor { 'get_iplayer::begin': } ->

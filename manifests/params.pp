@@ -11,4 +11,9 @@ class get_iplayer::params {
     "perl-XML-Simple",
   ]
 
+  $options = {
+    "nopurge"       => "true",
+    "subdir-format" => "<nameshort>",
+  }
+
 }
