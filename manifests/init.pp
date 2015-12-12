@@ -36,16 +36,21 @@
 class get_iplayer (
   $conf_dir               = $get_iplayer::params::conf_dir,
   $version                = $get_iplayer::params::version,
+  $listen_port            = $get_iplayer::params::listen_port,
+  $listen_address         = $get_iplayer::params::listen_address,
   $prereqs                = $get_iplayer::params::prereqs,
   $options                = $get_iplayer::params::options,
   $options_extra          = {},
   $source_location        = $get_iplayer::params::source_location,
   $basedir                = $get_iplayer::params::basedir,
+  $service_template       = $get_iplayer::params::service_template,
+  $service_path           = $get_iplayer::params::service_path,
 ) inherits get_iplayer::params {
 
   anchor { 'get_iplayer::begin': } ->
   class { '::get_iplayer::install': } ->
-  class { '::get_iplayer::config': } ->
+  class { '::get_iplayer::config': } ~>
+  class { '::get_iplayer::service': } ->
   anchor { 'get_iplayer::end': }
   
 }
