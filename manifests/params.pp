@@ -6,9 +6,10 @@ class get_iplayer::params {
 
   $source_location   = "ftp://ftp.infradead.org/pub/get_iplayer/get_iplayer-${get_iplayer::version}.tar.gz"
 
+  $output_dir = '/var/get_iplayer'
+
   $options = {
-    "nopurge"       => "true",
-    "subdir-format" => "<nameshort>",
+    "output"        => $get_iplayer::output_dir,
   }
 
   $basedir = '/usr/local'

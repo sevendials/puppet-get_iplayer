@@ -25,4 +25,9 @@ class get_iplayer::install inherits get_iplayer {
     content => template($get_iplayer::service_template),
   }
 
+  file { 'get_iplayer.output_dir':
+    ensure  => 'directory',
+    path    => $get_iplayer::output_dir,
+  }
+
 }
