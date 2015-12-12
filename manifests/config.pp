@@ -10,11 +10,15 @@ class get_iplayer::config inherits get_iplayer {
     content => "setenv GETIPLAYERUSERPREFS ${get_iplayer::conf_dir}\n",
   }
 
-  $content = map($get_iplayer::options) |$key,$value| { "${key} ${value}\n" }
+  $content_array = map ($get_iplayer::options) |$key,$value| { 
+    "${key} ${value}\n"
+  }
+
+  $options_content = join(sort($content_array), '')
 
   file { 'get_iplayer.options':
     path    => '/etc/get_iplayer/options',
-    content => join($content, ''),
+    content => $options_content,
   }
 
 }
