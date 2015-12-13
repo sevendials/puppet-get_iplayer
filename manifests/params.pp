@@ -25,12 +25,18 @@ class get_iplayer::params {
       $service_env_path     = '/etc/sysconfig/get_iplayer'
 
       $prereqs  = [
-        "perl",
-        "perl-Env",
-        "perl-HTML-Parser",
-        "perl-HTTP-Cookies",
-        "perl-libwww-perl",
-        "perl-XML-Simple",
+        'nux-desktop-release' => {
+          source    => 'http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm'
+          provider  => 'rpm',
+        },
+        "perl" => {},
+        "perl-Env" => {},
+        "perl-HTML-Parser" => {},
+        "perl-HTTP-Cookies" => {},
+        "perl-libwww-perl" => {},
+        "perl-XML-Simple" => {},
+        "ffmpeg" => {},
+        'flvstreamer' => {},
       ]
 
     }
