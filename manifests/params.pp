@@ -8,10 +8,6 @@ class get_iplayer::params {
 
   $output_dir = '/var/get_iplayer'
 
-  $options = {
-    "output"        => $get_iplayer::output_dir,
-  }
-
   $basedir = '/usr/local'
 
   case $::osfamily {

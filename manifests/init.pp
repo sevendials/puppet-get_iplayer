@@ -39,7 +39,6 @@ class get_iplayer (
   $listen_port            = $get_iplayer::params::listen_port,
   $listen_address         = $get_iplayer::params::listen_address,
   $prereqs                = $get_iplayer::params::prereqs,
-  $options                = $get_iplayer::params::options,
   $options_extra          = {},
   $output_dir             = $get_iplayer::params::output_dir,
   $source_location        = $get_iplayer::params::source_location,

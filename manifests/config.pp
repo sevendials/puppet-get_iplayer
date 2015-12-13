@@ -12,7 +12,12 @@ class get_iplayer::config inherits get_iplayer {
     content => "setenv GETIPLAYERUSERPREFS ${get_iplayer::conf_dir}\n",
   }
 
-  $all_opts = merge($get_iplayer::options, $get_iplayer::options_extra)
+  $options_default = {
+    "output"      => $get_iplayer::output_dir,
+    "profiledir"  => $get_iplayer::conf_dir,
+  }
+
+  $all_opts = merge($options_default, $get_iplayer::options_extra)
 
   $opts_array = map ($all_opts) |$key,$value| { 
     "${key} ${value}\n"
