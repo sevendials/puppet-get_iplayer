@@ -24,7 +24,7 @@ class get_iplayer::params {
       $service_env_template = 'get_iplayer/service_env.erb'
       $service_env_path     = '/etc/sysconfig/get_iplayer'
 
-      $prereqs  = [
+      $prereqs  = {
         {'nux-desktop-release' => {
           source    => 'http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm',
           provider  => 'rpm',
@@ -37,7 +37,7 @@ class get_iplayer::params {
         {"perl-XML-Simple" => {}},
         {"ffmpeg" => {}},
         {'flvstreamer' => {}},
-      ]
+      }
 
     }
     default: {
