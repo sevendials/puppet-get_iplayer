@@ -31,8 +31,8 @@ class get_iplayer::params {
         "perl-HTTP-Cookies" => {},
         "perl-libwww-perl" => {},
         "perl-XML-Simple" => {},
-        "ffmpeg" => { require => 'Package[nux-desktop-release]' },
-        'rtmpdump' => { require => 'Package[nux-desktop-release]' },
+        "ffmpeg" => { require => 'Package[nux-dextop-release]' },
+        'rtmpdump' => { require => 'Package[nux-dextop-release]' },
         'nux-dextop-release' => {
           'source'    => 'http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm',
           'provider'  => 'rpm',
