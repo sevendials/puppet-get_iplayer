@@ -25,19 +25,18 @@ class get_iplayer::params {
       $service_env_path     = '/etc/sysconfig/get_iplayer'
 
       $prereqs  = {
-        'nux-dextop-release' => {
-          source    => 'http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm',
-          provider  => 'rpm',
-          before    => Package['ffmpeg','rtmpdump']
-        },
         "perl" => {},
         "perl-Env" => {},
         "perl-HTML-Parser" => {},
         "perl-HTTP-Cookies" => {},
         "perl-libwww-perl" => {},
         "perl-XML-Simple" => {},
-        "ffmpeg" => {},
-        'rtmpdump' => {}
+        "ffmpeg" => { require => 'Package[nux-desktop-release]' },
+        'rtmpdump' => { require => 'Package[nux-desktop-release]' },
+        'nux-dextop-release' => {
+          'source'    => 'http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm',
+          'provider'  => 'rpm',
+        },
       }
 
     }
