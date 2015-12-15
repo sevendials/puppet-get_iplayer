@@ -12,7 +12,7 @@ class get_iplayer::params {
 
   case $::osfamily {
     "RedHat": {
-      case $::operatingsystemrelease {
+      case $::os['release']['major'] {
         "7": {
           $service_template = 'get_iplayer/systemd.erb'
           $service_path     = '/lib/systemd/system/get_iplayer.service'
@@ -41,9 +41,7 @@ class get_iplayer::params {
           $prereqs  = {
             "perl" => {},
             "perl-CGI" => {},
-            "perl-Env" => {},
             "perl-HTML-Parser" => {},
-            "perl-HTTP-Cookies" => {},
             "perl-libwww-perl" => {},
             "perl-XML-Simple" => {},
             "ffmpeg" => { require => 'Package[nux-dextop-release]' },
