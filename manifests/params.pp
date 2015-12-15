@@ -62,7 +62,7 @@ class get_iplayer::params {
       $service_env_path     = '/etc/sysconfig/get_iplayer'
 
     }
-    "Ubuntu": {
+    "Debian": {
 
       $service_template = 'get_iplayer/init.erb'
       $service_path     = '/etc/init/get_iplayer.conf'
