@@ -62,6 +62,28 @@ class get_iplayer::params {
       $service_env_path     = '/etc/sysconfig/get_iplayer'
 
     }
+    "Ubuntu": {
+
+      $service_template = 'get_iplayer/init.erb'
+      $service_path     = '/etc/init/get_iplayer.conf'
+      $service_provider = 'upstart'
+
+      $prereqs  = {
+        "perl" => {},
+        "perl-CGI" => {},
+        "perl-Env" => {},
+        "perl-HTML-Parser" => {},
+        "perl-HTTP-Cookies" => {},
+        "perl-libwww-perl" => {},
+        "perl-XML-Simple" => {},
+        "ffmpeg" => {},
+        'rtmpdump' => {},
+      }
+
+      $service_env_template = 'get_iplayer/service_env.erb'
+      $service_env_path     = '/etc/default/get_iplayer'
+
+    }
     default: {
       fail("OS ${::operatingsystem} ${::operatingsystemrelease} is not supported")
     }
