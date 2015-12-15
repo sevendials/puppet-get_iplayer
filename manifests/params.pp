@@ -54,7 +54,7 @@ class get_iplayer::params {
           }
         }
         default: {
-          err("OS ${::operatingsystem} ${::operatingsystemrelease} is not supported")
+          fail("OS ${::operatingsystem} ${::operatingsystemrelease} is not supported")
         }
       }
 
@@ -63,7 +63,7 @@ class get_iplayer::params {
 
     }
     default: {
-      err("OS ${::operatingsystem} ${::operatingsystemrelease} is not supported")
+      fail("OS ${::operatingsystem} ${::operatingsystemrelease} is not supported")
     }
   } 
 
