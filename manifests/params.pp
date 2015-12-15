@@ -26,6 +26,7 @@ class get_iplayer::params {
 
       $prereqs  = {
         "perl" => {},
+        "perl-CGI" => {},
         "perl-Env" => {},
         "perl-HTML-Parser" => {},
         "perl-HTTP-Cookies" => {},
