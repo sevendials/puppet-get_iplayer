@@ -25,7 +25,6 @@ class get_iplayer::params {
       $service_env_path     = '/etc/sysconfig/get_iplayer'
 
       $prereqs  = {
-        "epel-release" => {},
         "perl" => {},
         "perl-Env" => {},
         "perl-HTML-Parser" => {},
