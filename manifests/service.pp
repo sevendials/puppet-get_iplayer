@@ -5,7 +5,7 @@ class get_iplayer::service inherits get_iplayer {
     enable    => true,
     provider  => $service_provider ? {
       ''      => undef,
-      default = $service_provider,
+      default => $service_provider,
     },
   }
 
