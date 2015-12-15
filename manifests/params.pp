@@ -35,7 +35,8 @@ class get_iplayer::params {
         }
         '6': {
           $service_template = 'get_iplayer/init.erb'
-          $service_path     = '/etc/init.d/get_iplayer'
+          $service_path     = '/etc/init/get_iplayer'
+          $service_provider = 'upstart'
 
           $prereqs  = {
             "perl" => {},
