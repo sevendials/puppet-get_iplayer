@@ -72,7 +72,7 @@ class get_iplayer::params {
           $service_env_path     = '/etc/default/get_iplayer'
 
           $ffmpeg_real = versioncmp($::os['release']['major'], '15.04') ? {
-              "1"     => 'ffmpeg',
+              1       => 'ffmpeg',
               default => 'libav-tools',
           }
 
