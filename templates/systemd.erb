@@ -4,7 +4,7 @@ Wants=basic.target
 After=basic.target network.target
 
 [Service]
-EnvironmentFile=-/etc/sysconfig/get_iplayer
+EnvironmentFile=-<%= @service_env_path %>
 ExecStart=/usr/bin/perl <%= @instdir %>/get_iplayer.cgi -p <%= @listen_port %> -g <%= @instdir %>/get_iplayer -l <%= @listen_address %>
 KillMode=process
 

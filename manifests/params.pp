@@ -64,9 +64,15 @@ class get_iplayer::params {
     }
     "Debian": {
 
-      $service_template = 'get_iplayer/init.erb'
-      $service_path     = '/etc/init/get_iplayer.conf'
-      $service_provider = 'upstart'
+      if versioncmp($::os['release']['major'], '15.04') < 0 {
+        $service_template = 'get_iplayer/init.erb'
+        $service_path     = '/etc/init/get_iplayer.conf'
+        $service_provider = 'upstart'
+      }
+      else {
+        $service_template = 'get_iplayer/systemd.erb'
+        $service_path     = '/lib/systemd/system/get_iplayer.service'
+      }
 
       $prereqs  = {
         "libxml-simple-perl" => {},
