@@ -69,7 +69,7 @@ class get_iplayer::params {
       $service_provider = 'upstart'
 
       $prereqs  = {
-        "perl" => {},
+        "libxml-simple-perl" => {},
         'rtmpdump' => {},
         'libhtml-parser-perl' => {},
         'libwww-perl' => {},
