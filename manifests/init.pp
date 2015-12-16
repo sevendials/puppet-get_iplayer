@@ -34,19 +34,20 @@
 # Copyright 2015 Christopher Jenkins, unless otherwise noted.
 #
 class get_iplayer (
+  $base_dir               = $get_iplayer::params::base_dir,
   $conf_dir               = $get_iplayer::params::conf_dir,
-  $version                = $get_iplayer::params::version,
-  $listen_port            = $get_iplayer::params::listen_port,
   $listen_address         = $get_iplayer::params::listen_address,
-  $prereqs                = $get_iplayer::params::prereqs,
+  $listen_port            = $get_iplayer::params::listen_port,
+  $manage_prereqs         = $get_iplayer::params::manage_prereqs,
   $options_extra          = {},
   $output_dir             = $get_iplayer::params::output_dir,
-  $source_location        = $get_iplayer::params::source_location,
-  $basedir                = $get_iplayer::params::basedir,
-  $service_template       = $get_iplayer::params::service_template,
-  $service_path           = $get_iplayer::params::service_path,
-  $service_env_template   = $get_iplayer::params::service_env_template,
+  $prereqs                = $get_iplayer::params::prereqs,
   $service_env_path       = $get_iplayer::params::service_env_path,
+  $service_env_template   = $get_iplayer::params::service_env_template,
+  $service_path           = $get_iplayer::params::service_path,
+  $service_template       = $get_iplayer::params::service_template,
+  $source_location        = $get_iplayer::params::source_location,
+  $version                = $get_iplayer::params::version,
 ) inherits get_iplayer::params {
 
   anchor { 'get_iplayer::begin': } ->

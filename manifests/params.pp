@@ -8,9 +8,11 @@ class get_iplayer::params {
 
   $output_dir = '/var/get_iplayer'
 
-  $basedir = '/usr/local'
+  $base_dir = '/usr/local'
 
   $fail_msg = "OS ${::operatingsystem} ${::operatingsystemrelease} is not supported"
+
+  $manage_prereqs = true
 
   case $::osfamily {
     "RedHat": {

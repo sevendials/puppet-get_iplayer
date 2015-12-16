@@ -1,6 +1,6 @@
 class get_iplayer::install inherits get_iplayer {
 
-  $instdir = "${get_iplayer::basedir}/get_iplayer-${get_iplayer::version}"
+  $instdir = "${get_iplayer::base_dir}/get_iplayer-${get_iplayer::version}"
 
   $source_location = regsubst(
     $get_iplayer::source_location,
@@ -8,13 +8,15 @@ class get_iplayer::install inherits get_iplayer {
     $get_iplayer::version
   )
 
-  each($get_iplayer::prereqs) | String $resource, Hash $attributes| {
-    ensure_resource('package', $resource, $attributes)
+  if $get_iplayer::manage_prereqs {
+    each($get_iplayer::prereqs) | String $resource, Hash $attributes| {
+      ensure_resource('package', $resource, $attributes)
+    }
   }
 
   staging::deploy { "get_iplayer-${get_iplayer::version}.tar.gz":
     source => $source_location,
-    target => $get_iplayer::basedir,
+    target => $get_iplayer::base_dir,
   }
   ->
   file { 'get_iplayer.bin':
