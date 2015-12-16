@@ -10,8 +10,14 @@ class get_iplayer::params {
 
   $basedir = '/usr/local'
 
+  $fail_msg = "OS ${::operatingsystem} ${::operatingsystemrelease} is not supported"
+
   case $::osfamily {
     "RedHat": {
+
+      $service_env_template = 'get_iplayer/service_env.erb'
+      $service_env_path     = '/etc/sysconfig/get_iplayer'
+
       case $::os['release']['major'] {
         "7": {
           $service_template = 'get_iplayer/systemd.erb'
@@ -54,40 +60,42 @@ class get_iplayer::params {
           }
         }
         default: {
-          fail("OS ${::operatingsystem} ${::operatingsystemrelease} is not supported")
+          fail($fail_msg)
         }
       }
 
-      $service_env_template = 'get_iplayer/service_env.erb'
-      $service_env_path     = '/etc/sysconfig/get_iplayer'
-
     }
     "Debian": {
+      case $::operatingsystem {
+        "Ubuntu": {
+          $service_env_template = 'get_iplayer/service_env.erb'
+          $service_env_path     = '/etc/default/get_iplayer'
 
-      if versioncmp($::os['release']['major'], '15.04') < 0 {
-        $service_template = 'get_iplayer/init.erb'
-        $service_path     = '/etc/init/get_iplayer.conf'
-        $service_provider = 'upstart'
+          if versioncmp($::os['release']['major'], '15.04') < 0 {
+            $service_template = 'get_iplayer/init.erb'
+            $service_path     = '/etc/init/get_iplayer.conf'
+            $service_provider = 'upstart'
+          }
+          else {
+            $service_template = 'get_iplayer/systemd.erb'
+            $service_path     = '/lib/systemd/system/get_iplayer.service'
+          }
+
+          $prereqs  = {
+            "libxml-simple-perl" => {},
+            'rtmpdump' => {},
+            'libhtml-parser-perl' => {},
+            'libwww-perl' => {},
+            'libav-tools' => {},
+          }
+        }
+        default: {
+          fail($fail_msg)
+        }
       }
-      else {
-        $service_template = 'get_iplayer/systemd.erb'
-        $service_path     = '/lib/systemd/system/get_iplayer.service'
-      }
-
-      $prereqs  = {
-        "libxml-simple-perl" => {},
-        'rtmpdump' => {},
-        'libhtml-parser-perl' => {},
-        'libwww-perl' => {},
-        'libav-tools' => {},
-      }
-
-      $service_env_template = 'get_iplayer/service_env.erb'
-      $service_env_path     = '/etc/default/get_iplayer'
-
     }
     default: {
-      fail("OS ${::operatingsystem} ${::operatingsystemrelease} is not supported")
+      fail($fail_msg)
     }
   } 
 
