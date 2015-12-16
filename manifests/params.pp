@@ -71,6 +71,19 @@ class get_iplayer::params {
           $service_env_template = 'get_iplayer/service_env.erb'
           $service_env_path     = '/etc/default/get_iplayer'
 
+          $ffmpeg_real = versioncmp($::os['release']['major'], '15.04') > 0 ? {
+              true  => 'ffmpeg',
+              false => 'libav-tools',
+          }
+
+          $prereqs  = {
+            "libxml-simple-perl" => {},
+            'rtmpdump' => {},
+            'libhtml-parser-perl' => {},
+            'libwww-perl' => {},
+            $ffmpeg_real => {},
+          }
+
           if versioncmp($::os['release']['major'], '15.04') < 0 {
             $service_template = 'get_iplayer/init.erb'
             $service_path     = '/etc/init/get_iplayer.conf'
@@ -81,13 +94,6 @@ class get_iplayer::params {
             $service_path     = '/lib/systemd/system/get_iplayer.service'
           }
 
-          $prereqs  = {
-            "libxml-simple-perl" => {},
-            'rtmpdump' => {},
-            'libhtml-parser-perl' => {},
-            'libwww-perl' => {},
-            'libav-tools' => {},
-          }
         }
         default: {
           fail($fail_msg)
