@@ -70,14 +70,10 @@ class get_iplayer::params {
 
       $prereqs  = {
         "perl" => {},
-        "perl-CGI" => {},
-        "perl-Env" => {},
-        "perl-HTML-Parser" => {},
-        "perl-HTTP-Cookies" => {},
-        "perl-libwww-perl" => {},
-        "perl-XML-Simple" => {},
-        "ffmpeg" => {},
         'rtmpdump' => {},
+        'libhtml-parser-perl' => {},
+        'libwww-perl' => {},
+        'avconv' => {},
       }
 
       $service_env_template = 'get_iplayer/service_env.erb'
