@@ -73,7 +73,7 @@ class get_iplayer::params {
         'rtmpdump' => {},
         'libhtml-parser-perl' => {},
         'libwww-perl' => {},
-        'avconv' => {},
+        'libav-tools' => {},
       }
 
       $service_env_template = 'get_iplayer/service_env.erb'
