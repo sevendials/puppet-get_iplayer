@@ -2,14 +2,63 @@
   "name": "sevendials-get_iplayer",
   "version": "0.1.0",
   "author": "sevendials",
-  "summary": "Module for installing get_iplayer",
-  "license": "GPL 2.0",
+  "summary": "Installs get_iplayer. Configures service for web-based PVR",
+  "license": "Apache-2.0",
   "source": "git://github.com/sevendials/puppet-get_iplayer.git",
   "project_page": "https://github.com/sevendials/puppet-get_iplayer",
   "issues_url": "https://github.com/sevendials/puppet-get_iplayer/issues",
+  "description": "Module for installing get_iplayer",
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "OracleLinux",
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Scientific",
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "12.04",
+        "12.10",
+        "13.04",
+        "13.10",
+        "14.04",
+        "14.10",
+        "15.04",
+        "15.10"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">=4.0.0 <5.0.0"
+    }
+  ],
   "dependencies": [
-    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+    {"name":"puppetlabs-stdlib","version_requirement":">= 4.2.2 <5.0.0"}
     {"name":"nanliu-staging","version_requirement":">= 1.0.0"}
-  ]
+  ],
 }
-
