@@ -4,7 +4,7 @@ class get_iplayer::params {
 
   $version  = '2.94'
 
-  $source_location   = "ftp://ftp.infradead.org/pub/get_iplayer/get_iplayer-__VERSION__.tar.gz"
+  $source_location = 'ftp://ftp.infradead.org/pub/get_iplayer/get_iplayer-__VERSION__.tar.gz'
 
   $output_dir = '/var/get_iplayer'
 
@@ -14,29 +14,29 @@ class get_iplayer::params {
 
   $manage_prereqs = true
 
-  $listen_port    = "1935"
+  $listen_port    = '1935'
 
-  $listen_address = "127.0.0.1"
+  $listen_address = '127.0.0.1'
 
   case $::osfamily {
-    "RedHat": {
+    'RedHat': {
 
       $service_env_template = 'get_iplayer/service_env.erb'
       $service_env_path     = '/etc/sysconfig/get_iplayer'
 
       case $::os['release']['major'] {
-        "7": {
+        '7': {
           $service_template = 'get_iplayer/systemd.erb'
           $service_path     = '/lib/systemd/system/get_iplayer.service'
           $prereqs  = {
-            "perl" => {},
-            "perl-CGI" => {},
-            "perl-Env" => {},
-            "perl-HTML-Parser" => {},
-            "perl-HTTP-Cookies" => {},
-            "perl-libwww-perl" => {},
-            "perl-XML-Simple" => {},
-            "ffmpeg" => { require => 'Package[nux-dextop-release]' },
+            'perl' => {},
+            'perl-CGI' => {},
+            'perl-Env' => {},
+            'perl-HTML-Parser' => {},
+            'perl-HTTP-Cookies' => {},
+            'perl-libwww-perl' => {},
+            'perl-XML-Simple' => {},
+            'ffmpeg' => { require => 'Package[nux-dextop-release]' },
             'rtmpdump' => { require => 'Package[nux-dextop-release]' },
             'nux-dextop-release' => {
               'source'    => 'http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm',
@@ -51,12 +51,12 @@ class get_iplayer::params {
           $service_provider = 'upstart'
 
           $prereqs  = {
-            "perl" => {},
-            "perl-CGI" => {},
-            "perl-HTML-Parser" => {},
-            "perl-libwww-perl" => {},
-            "perl-XML-Simple" => {},
-            "ffmpeg" => { require => 'Package[nux-dextop-release]' },
+            'perl' => {},
+            'perl-CGI' => {},
+            'perl-HTML-Parser' => {},
+            'perl-libwww-perl' => {},
+            'perl-XML-Simple' => {},
+            'ffmpeg' => { require => 'Package[nux-dextop-release]' },
             'rtmpdump' => { require => 'Package[nux-dextop-release]' },
             'nux-dextop-release' => {
               'source'    => 'http://li.nux.ro/download/nux/dextop/el6/x86_64/nux-dextop-release-0-2.el6.nux.noarch.rpm',
@@ -71,9 +71,9 @@ class get_iplayer::params {
       }
 
     }
-    "Debian": {
+    'Debian': {
       case $::operatingsystem {
-        "Ubuntu": {
+        'Ubuntu': {
           $service_env_template = 'get_iplayer/service_env.erb'
           $service_env_path     = '/etc/default/get_iplayer'
 
@@ -83,7 +83,7 @@ class get_iplayer::params {
           }
 
           $prereqs  = {
-            "libxml-simple-perl" => {},
+            'libxml-simple-perl' => {},
             'rtmpdump' => {},
             'libhtml-parser-perl' => {},
             'libwww-perl' => {},
@@ -109,6 +109,6 @@ class get_iplayer::params {
     default: {
       fail($fail_msg)
     }
-  } 
+  }
 
 }
