@@ -1,8 +1,8 @@
 class get_iplayer::config inherits get_iplayer {
 
   $options_default = {
-    "output"      => $get_iplayer::output_dir,
-    "profiledir"  => $get_iplayer::conf_dir,
+    'output'      => $get_iplayer::output_dir,
+    'profiledir'  => $get_iplayer::conf_dir,
   }
 
   $all_opts = merge($options_default, $get_iplayer::options_extra)

@@ -20,14 +20,14 @@ class get_iplayer::install inherits get_iplayer {
   }
   ->
   file { 'get_iplayer.bin':
-    name    => '/usr/bin/get_iplayer',
-    ensure  => 'link',
-    target  => "${instdir}/get_iplayer",
+    name   => '/usr/bin/get_iplayer',
+    ensure => 'link',
+    target => "${instdir}/get_iplayer",
   }
 
   file { 'get_iplayer.conf_dir':
-    ensure  => 'directory',
-    path    => $get_iplayer::conf_dir,
+    ensure => 'directory',
+    path   => $get_iplayer::conf_dir,
   }
 
   file { 'get_iplayer.service':
@@ -36,8 +36,8 @@ class get_iplayer::install inherits get_iplayer {
   }
 
   file { 'get_iplayer.output_dir':
-    ensure  => 'directory',
-    path    => $get_iplayer::output_dir,
+    ensure => 'directory',
+    path   => $get_iplayer::output_dir,
   }
 
 }
