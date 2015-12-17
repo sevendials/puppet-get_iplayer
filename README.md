@@ -10,70 +10,213 @@
     * [Beginning with get_iplayer](#beginning-with-get_iplayer)
 4. [Usage - Configuration options and additional functionality](#usage)
 5. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
-5. [Limitations - OS compatibility, etc.](#limitations)
-6. [Development - Guide for contributing to the module](#development)
+6. [Limitations - OS compatibility, etc.](#limitations)
+7. [Development - Guide for contributing to the module](#development)
 
 ## Overview
 
-A one-maybe-two sentence summary of what the module does/what problem it solves.
-This is your 30 second elevator pitch for your module. Consider including
-OS/Puppet version it works with.
+The get_iplayer module lets you access content from the BBC iPlayer service.
 
 ## Module Description
 
-If applicable, this section should have a brief description of the technology
-the module integrates with and what that integration enables. This section
-should answer the questions: "What does this module *do*?" and "Why would I use
-it?"
-
-If your module has a range of functionality (installation, configuration,
-management, etc.) this is the time to mention it.
+This module installs get_iplayer from its source location on the web. This
+provides a command line client and a web-based PVR service. The module also
+installs a service for PVR functionality. The software can only access video
+content from a UK-based IP address.
 
 ## Setup
 
 ### What get_iplayer affects
 
-* A list of files, packages, services, or operations that the module will alter,
-  impact, or execute on the system it's installed on.
-* This is a great place to stick any warnings.
-* Can be in list or paragraph form.
-
-### Setup Requirements **OPTIONAL**
-
-If your module requires anything extra before setting up (pluginsync enabled,
-etc.), mention it here.
+* Creates /etc/get_iplayer directory
+* Installs software into /usr/local
+* Creates get_iplayer service in native service provider
+* Runs service on port 1935
 
 ### Beginning with get_iplayer
 
-The very basic steps needed for a user to get the module up and running.
+```puppet
+ include 'get_iplayer'
+```
 
-If your most recent release breaks compatibility or requires particular steps
-for upgrading, you may wish to include an additional section here: Upgrading
-(For an example, see http://forge.puppetlabs.com/puppetlabs/firewall).
+The above gets the client software installed. The command line client can
+be accessed by running:
+
+ /usr/bin/get_iplayer
+
+The PVR service can be accessed from:
+
+ http://localhost:1935
 
 ## Usage
+### Change the PVR service listen address
 
-Put the classes, types, and resources for customizing, configuring, and doing
-the fancy stuff with your module here.
+The PVR service runs on localhost (127.0.0.1) by default so to access it
+remotely, set the listen_address parameter:
+
+```puppet
+ class { 'get_iplayer':
+   listen_address => '0.0.0.0'
+ }
+```
+
+### Change the PVR service listen port
+
+```puppet
+ class { 'get_iplayer':
+   listen_port => '1935'
+ }
+```
+
+### Change the PVR service download directory location
+
+```puppet
+ class { 'get_iplayer':
+   output_dir => '/home/joebloggs/Downloads'
+ }
+```
+
+### Set software version
+By default, the latest version of the software is installed from the ftp site.
+See http://www.infradead.org/get_iplayer/CHANGELOG-get_iplayer for available
+versions and set the version manually:
+
+```puppet
+ class { 'get_iplayer':
+   version => '2.94'
+ }
+```
+
+### Dealing with software prerequisites
+
+This software has the following prerequisites:
+
+ perl
+ perl::CGI
+ perl::Env
+ perl::HTML::Parser
+ perl::HTTP::Cookies
+ perl::libwww::perl
+ perl::XML::Simple
+ rtmpdump or flvstreamer
+ ffmpeg or libav-tools
+
+The module attempts to install these using the ensure_package function. On
+RHEL-based systems, the last two packages require installing a third-part
+YUM repository. If this causes a problem, prerequisite installation can be
+skipped:
+
+```puppet
+ class { 'get_iplayer':
+   manage_prereqs => false
+ }
+```
+
+### Additional get_iplayer options for PVR service
+
+To set additional options the options_extra takes a hash:
+
+```puppet
+ class { 'get_iplayer':
+   options_extra => { 'subdir' => true, subdirformat => '<nameshort>' }
+ }
+```
+
+The above option causes the PVR service to create a subdirectory for the
+download. For a complete list of options, run:
+
+ get_iplayer --dump-options
 
 ## Reference
 
-Here, list the classes, types, providers, facts, etc contained in your module.
-This section should include all of the under-the-hood workings of your module so
-people know what the module is touching on their system but don't need to mess
-with things. (We are working on automating this section!)
+### Classes
+
+#### Public Classes
+
+* get_iplayer: Main class, includes all other classes
+
+#### Private Classes
+
+
+* get_iplayer::install: Handles the software source.
+* get_iplayer::config: Handles the PVR service configuration.
+* get_iplayer::service: Handles the PVR service.
+
+### Parameters
+
+The below parameters are available in the get_iplayer class:
+
+####`base_dir`
+
+Target directory for tarball. Defaults to '/usr/local'.
+
+####`conf_dir`
+
+PVR service config directory. The options file and the generated cache are
+stored here. Defaults to '/etc/get_iplayer'.
+
+####`listen_address`
+
+PVR service listen address. Defaults to '127.0.0.1'.
+
+####`listen_port`
+
+PVR service listen address. Defaults to '1935'.
+
+####`manage_prereqs`
+
+Installs perl dependencies and external commands (see full description in
+Setup section). Defaults to true.
+
+####`options_extra`
+
+Extra options for PVR service (see full description in Setup section). Defaults
+to an empty hash: {}
+
+####`output_dir`
+
+Download directory for PVR service. Defaults to '/var/get_iplayer'.
+
+####`prereqs`
+
+Prerequisite packages. Defaults to a hash in get_iplayer::params.
+
+####`service_env_path`
+
+Path to service environment file.
+
+####`service_env_template`
+
+Template for service environment file.
+
+####`service_path`
+
+Path to service file.
+
+####`service_template`
+
+Templace for service file.
+
+####`source_location`
+
+FTP location of software source file. __VERSION__ is replaced by the version
+parameter. Defaults to:
+
+ ftp://ftp.infradead.org/pub/get_iplayer/get_iplayer-__VERSION__.tar.gz
+
+####`version`
+
+Set version.
 
 ## Limitations
 
-This is where you list OS compatibility, version compatibility, etc.
+This module has been tested with Puppet 4.
+
+The module has been tested on:
+
+* CentOS 6/7
+* Ubuntu 12.04/14.04/14.10/15.04
 
 ## Development
 
-Since your module is awesome, other users will want to play with it. Let them
-know what the ground rules for contributing are.
-
-## Release Notes/Contributors/Etc **Optional**
-
-If you aren't using changelog, put your release notes here (though you should
-consider using changelog). You may also add any additional sections you feel are
-necessary or important to include here. Please use the `## ` header.
+Please send pull requests.

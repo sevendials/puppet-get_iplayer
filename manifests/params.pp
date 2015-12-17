@@ -14,6 +14,10 @@ class get_iplayer::params {
 
   $manage_prereqs = true
 
+  $listen_port    = "1935"
+
+  $listen_address = "127.0.0.1"
+
   case $::osfamily {
     "RedHat": {
 
@@ -106,8 +110,5 @@ class get_iplayer::params {
       fail($fail_msg)
     }
   } 
-
-  $listen_port    = "1935"
-  $listen_address = "0.0.0.0"
 
 }
