@@ -1,12 +1,17 @@
 {
   "name": "sevendials-get_iplayer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "sevendials",
   "summary": "Installs get_iplayer. Configures service for web-based PVR",
   "license": "Apache-2.0",
   "source": "git://github.com/sevendials/puppet-get_iplayer.git",
   "project_page": "https://github.com/sevendials/puppet-get_iplayer",
   "issues_url": "https://github.com/sevendials/puppet-get_iplayer/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 4.2.2 <5.0.0"},
+    {"name":"nanliu-staging","version_requirement":">= 1.0.0"}
+  ],
+  "data_provider": null,
   "description": "Module for installing get_iplayer",
   "operatingsystem_support": [
     {
@@ -56,9 +61,5 @@
       "name": "puppet",
       "version_requirement": ">=4.0.0 <5.0.0"
     }
-  ],
-  "dependencies": [
-    {"name":"puppetlabs-stdlib","version_requirement":">= 4.2.2 <5.0.0"},
-    {"name":"nanliu-staging","version_requirement":">= 1.0.0"}
   ]
 }
