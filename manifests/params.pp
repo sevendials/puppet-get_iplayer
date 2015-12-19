@@ -2,12 +2,6 @@ class get_iplayer::params {
 
   $fail_msg = "OS ${::operatingsystem} ${::operatingsystemrelease} is not supported"
 
-  $manage_prereqs = true
-
-  $listen_port    = '1935'
-
-  $listen_address = '127.0.0.1'
-
   case $::osfamily {
     'RedHat': {
 

@@ -1,9 +1,9 @@
 class get_iplayer (
   $base_dir,
   $conf_dir,
-  $listen_address         = $get_iplayer::params::listen_address,
-  $listen_port            = $get_iplayer::params::listen_port,
-  $manage_prereqs         = $get_iplayer::params::manage_prereqs,
+  $listen_address,
+  $listen_port,
+  $manage_prereqs,
   $options_extra          = {},
   $output_dir,
   $prereqs                = $get_iplayer::params::prereqs,
