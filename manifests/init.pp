@@ -4,15 +4,16 @@ class get_iplayer (
   $listen_address,
   $listen_port,
   $manage_prereqs,
-  $options_extra          = {},
+  $options_extra,
   $output_dir,
   $prereqs,
   $service_env_path,
   $service_path,
   $service_template,
+  $service_provider,
   $source_location,
   $version,
-) inherits get_iplayer::params {
+) {
 
   validate_absolute_path($base_dir)
   validate_absolute_path($conf_dir)

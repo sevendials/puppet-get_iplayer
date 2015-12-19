@@ -8,6 +8,8 @@ get_iplayer::conf_dir:        '/etc/get_iplayer'
 get_iplayer::listen_address:  '127.0.0.1'
 get_iplayer::listen_port:     '1935'
 get_iplayer::manage_prereqs:  true
+get_iplayer::options_extra:   {}
 get_iplayer::output_dir:      '/var/get_iplayer'
+get_iplayer::service_provider: ''
 get_iplayer::source_location: 'ftp://ftp.infradead.org/pub/get_iplayer/get_iplayer-__VERSION__.tar.gz'
 get_iplayer::version:         '2.94'
