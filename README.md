@@ -185,10 +185,6 @@ Prerequisite packages. Defaults to a hash in get_iplayer::params.
 
 Path to service environment file.
 
-####`service_env_template`
-
-Template for service environment file.
-
 ####`service_path`
 
 Path to service file.

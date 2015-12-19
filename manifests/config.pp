@@ -20,7 +20,7 @@ class get_iplayer::config inherits get_iplayer {
 
   file { 'get_iplayer.service_env':
     path    => $get_iplayer::service_env_path,
-    content => template($get_iplayer::service_env_template),
+    content => "GETIPLAYERUSERPREFS=%{get_iplayer::conf_dir}\n",
   }
 
 }

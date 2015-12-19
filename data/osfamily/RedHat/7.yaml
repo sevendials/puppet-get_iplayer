@@ -1,0 +1,20 @@
+---
+get_iplayer::service_template:  'get_iplayer/systemd.erb'
+get_iplayer::service_path:      '/lib/systemd/system/get_iplayer.service'
+
+prereqs:
+  - get_iplayer::perl: {}
+  - get_iplayer::perl-CGI: {}
+  - get_iplayer::perl-Env: {}
+  - get_iplayer::perl-HTML-Parser: {}
+  - get_iplayer::perl-HTTP-Cookies: {}
+  - get_iplayer::perl-libwww-perl: {}
+  - get_iplayer::perl-XML-Simple: {}
+  - get_iplayer::ffmpeg:
+      require: 'Package[nux-dextop-release]'
+  - get_iplayer::rtmpdump:
+      require: 'Package[nux-dextop-release]'
+  - get_iplayer::nux-dextop-release:
+      source:   'http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm'
+      provider: 'rpm'
+      require:  'Package[epel-release]'
