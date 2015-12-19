@@ -11,7 +11,6 @@ class get_iplayer::params {
         '6': {
           $service_provider = 'upstart'
 
-          }
         }
         default: {
           fail($fail_msg)
