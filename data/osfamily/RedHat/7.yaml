@@ -3,18 +3,18 @@ get_iplayer::service_template:  'get_iplayer/systemd.erb'
 get_iplayer::service_path:      '/lib/systemd/system/get_iplayer.service'
 
 get_iplayer::prereqs:
-  - 'perl': {}
-  - 'perl-CGI': {}
-  - 'perl-Env': {}
-  - 'perl-HTML-Parser': {}
-  - 'perl-HTTP-Cookies': {}
-  - 'perl-libwww-perl': {}
-  - 'perl-XML-Simple': {}
-  - 'ffmpeg':
-      require: 'Package[nux-dextop-release]'
-  - 'rtmpdump':
-      require: 'Package[nux-dextop-release]'
-  - 'nux-dextop-release':
-      source:   'http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm'
-      provider: 'rpm'
-      require:  'Package[epel-release]'
+  'perl': {}
+  'perl-CGI': {}
+  'perl-Env': {}
+  'perl-HTML-Parser': {}
+  'perl-HTTP-Cookies': {}
+  'perl-libwww-perl': {}
+  'perl-XML-Simple': {}
+  'ffmpeg':
+  'Package[nux-dextop-release]'
+  'rtmpdump':
+  'Package[nux-dextop-release]'
+  'nux-dextop-release':
+    source:   'http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm'
+    provider: 'rpm'
+    require:  'Package[epel-release]'
