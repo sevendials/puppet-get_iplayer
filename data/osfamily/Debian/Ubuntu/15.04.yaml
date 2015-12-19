@@ -1,0 +1,7 @@
+---
+get_iplayer::prereqs:
+  "libxml-simple-perl":   {}
+  "rtmpdump":             {}
+  'libhtml-parser-perl':  {}
+  'libwww-perl':          {}
+  'libav-tools':          {}

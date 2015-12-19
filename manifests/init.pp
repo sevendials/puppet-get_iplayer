@@ -6,11 +6,10 @@ class get_iplayer (
   $manage_prereqs,
   $options_extra          = {},
   $output_dir,
-  $prereqs                = $get_iplayer::params::prereqs,
-  $service_env_path       = $get_iplayer::params::service_env_path,
-  $service_env_template   = $get_iplayer::params::service_env_template,
-  $service_path           = $get_iplayer::params::service_path,
-  $service_template       = $get_iplayer::params::service_template,
+  $prereqs,
+  $service_env_path,
+  $service_path,
+  $service_template,
   $source_location,
   $version,
 ) inherits get_iplayer::params {
@@ -24,7 +23,6 @@ class get_iplayer (
   validate_absolute_path($output_dir)
   validate_array($prereqs)
   validate_absolute_path($service_env_path)
-  validate_string($service_env_template)
   validate_absolute_path($service_path)
   validate_string($service_template)
   validate_string($source_location)
