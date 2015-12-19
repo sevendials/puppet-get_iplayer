@@ -1,15 +1,5 @@
 class get_iplayer::params {
 
-  $conf_dir = '/etc/get_iplayer'
-
-  $version  = '2.94'
-
-  $source_location = 'ftp://ftp.infradead.org/pub/get_iplayer/get_iplayer-__VERSION__.tar.gz'
-
-  $output_dir = '/var/get_iplayer'
-
-  $base_dir = '/usr/local'
-
   $fail_msg = "OS ${::operatingsystem} ${::operatingsystemrelease} is not supported"
 
   $manage_prereqs = true
