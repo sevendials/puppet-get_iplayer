@@ -2,17 +2,17 @@
 get_iplayer::service_template: 'get_iplayer/init.erb'
 get_iplayer::service_path:     '/etc/init/get_iplayer.conf'
 
-prereqs:
-  - get_iplayer::perl: {}
-  - get_iplayer::perl-CGI: {}
-  - get_iplayer::perl-HTML-Parser: {}
-  - get_iplayer::perl-libwww-perl: {}
-  - get_iplayer::perl-XML-Simple: {}
-  - get_iplayer::ffmpeg:
+get_iplayer::prereqs:
+  - 'perl': {}
+  - 'perl-CGI': {}
+  - 'perl-HTML-Parser': {}
+  - 'perl-libwww-perl': {}
+  - 'perl-XML-Simple': {}
+  - 'ffmpeg':
       require: 'Package[nux-dextop-release]'
-  - get_iplayer::rtmpdump:
+  - 'rtmpdump':
       require: 'Package[nux-dextop-release]'
-  - get_iplayer::nux-dextop-release:
+  - 'nux-dextop-release':
       source:   'http://li.nux.ro/download/nux/dextop/el6/x86_64/nux-dextop-release-0-2.el6.nux.noarch.rpm'
       provider: 'rpm'
       require:  'Package[epel-release]'
