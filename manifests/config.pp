@@ -7,7 +7,7 @@ class get_iplayer::config inherits get_iplayer {
 
   $all_opts = merge($options_default, $get_iplayer::options_extra)
 
-  $opts_array = map ($all_opts) |$key,$value| { 
+  $opts_array = map ($all_opts) |$key,$value| {
     "${key} ${value}\n"
   }
 

@@ -34,5 +34,5 @@ class get_iplayer (
   class { '::get_iplayer::config': } ~>
   class { '::get_iplayer::service': } ->
   anchor { 'get_iplayer::end': }
- 
+
 }
