@@ -3,9 +3,7 @@ env:
   - PATH=${HOME}/.rbenv/versions/${RBENV_VERSION}/bin:$PATH
 script:
   - bundle install
-  - bundle exec rake spec
-  - bundle exec rake lint
-  - bundle exec rake validate
+  - bundle exec rake release_checks
 notify:
   email:
     recipients:

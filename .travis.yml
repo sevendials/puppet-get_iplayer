@@ -6,9 +6,7 @@ rvm:
  - "2.1.1"
 # uncomment this line if your project needs to run something other than `rake`:
 script:
-  - bundle exec rake spec
-  - bundle exec rake lint
-  - bundle exec rake validate
+  - bundle exec rake release_checks
 notifications:
   email:
     - christj@gmail.com
