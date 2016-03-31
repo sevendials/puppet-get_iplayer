@@ -3,8 +3,7 @@ env:
   - PATH=${HOME}/.rbenv/versions/${RBENV_VERSION}/bin:$PATH
 script:
   - bundle install
-  - gem install puppet-lint
-  - puppet-lint ${DRONE_BUILD_DIR} --no-class_inherits_from_params_class-check --no-documentation-check --fail-on-warnings
+  - rake spec
 notify:
   email:
     recipients:
