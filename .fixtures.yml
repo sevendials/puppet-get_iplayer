@@ -1,0 +1,8 @@
+fixtures:
+  repositories:
+    "staging": "git://github.com/nanliu/puppet-staging.git"
+    "stdlib": "git://github.com/puppetlabs/puppetlabs-stdlib.git"
+
+  symlinks:
+    "get_iplayer": "#{source_dir}"
+
