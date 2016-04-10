@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="oradb::installdb CentOS remote with invalid ora_inventory_dir parameter" tests="1" time="0.049436" failures="0" errors="0" skipped="0" timestamp="2016-02-06T21:44:45+01:00">
+  <testcase name="oradb::installdb CentOS remote with invalid ora_inventory_dir parameter should raise an error" time="0.048822">
+  </testcase>
+</testsuite>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="oradb::prepareautostart Solaris" tests="3" time="0.907001" failures="0" errors="0" skipped="0" timestamp="2016-02-06T21:44:41+01:00">
+  <testcase name="oradb::prepareautostart Solaris should contain File[/etc/oracle] with ensure =&gt; &quot;present&quot;, mode =&gt; &quot;0755&quot; and owner =&gt; &quot;root&quot;" time="0.899927">
+  </testcase>
+  <testcase name="oradb::prepareautostart Solaris should contain File[/tmp/oradb_smf.xml] with ensure =&gt; &quot;present&quot;, mode =&gt; &quot;0755&quot;, owner =&gt; &quot;root&quot; and content =~ /\/etc\/oracle/" time="0.002645">
+  </testcase>
+  <testcase name="oradb::prepareautostart Solaris should contain Exec[enable service oracle] with command =&gt; &quot;svccfg -v import /tmp/oradb_smf.xml&quot;, user =&gt; &quot;root&quot;, logoutput =&gt; true, path =&gt; &quot;/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:&quot;, unless =&gt; &quot;svccfg list | grep oracledatabase&quot; and require =&gt; [&quot;File[/tmp/oradb_smf.xml]&quot;, &quot;File[/etc/oracle]&quot;]" time="0.003023">
+  </testcase>
+</testsuite>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="oradb::installdb oracle_base and oracle_home error" tests="1" time="0.123155" failures="0" errors="0" skipped="0" timestamp="2016-02-06T21:44:44+01:00">
+  <testcase name="oradb::installdb oracle_base and oracle_home error should raise Puppet::Error with message matching /oracle_home folder should be under the oracle_base folder/" time="0.120105">
+  </testcase>
+</testsuite>

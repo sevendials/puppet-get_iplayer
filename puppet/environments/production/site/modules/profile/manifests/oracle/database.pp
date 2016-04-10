@@ -1,0 +1,28 @@
+class profile::oracle::database {
+  oradb::database{ 'testDb_Create':
+    oracle_base               => '/oracle',
+    oracle_home               => '/oracle/product/11.2/db',
+    version                   => '11.2',
+    user                      => 'oracle',
+    group                     => 'dba',
+    download_dir              => '/var/tmp',
+    action                    => 'create',
+    db_name                   => 'test',
+    db_domain                 => 'oracle.com',
+    db_port                   => '1521',
+    sys_password              => 'Welcome01',
+    system_password           => 'Welcome01',
+    data_file_destination     => '/oracle/oradata',
+    recovery_area_destination => '/oracle/flash_recovery_area',
+    character_set             => 'AL32UTF8',
+    nationalcharacter_set     => 'UTF8',
+    init_params               => {'open_cursors'        => '1000',
+                                  'processes'           => '600',
+                                  'job_queue_processes' => '4' },
+    sample_schema             => 'TRUE',
+    memory_percentage         => '40',
+    memory_total              => '800',
+    database_type             => 'MULTIPURPOSE',
+    em_configuration          => 'NONE',
+  }
+}

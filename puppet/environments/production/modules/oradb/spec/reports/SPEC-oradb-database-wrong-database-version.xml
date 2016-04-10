@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="oradb::database wrong database version" tests="1" time="0.052832" failures="0" errors="0" skipped="0" timestamp="2016-02-06T21:44:42+01:00">
+  <testcase name="oradb::database wrong database version should raise Puppet::Error with message matching /Unrecognized version/" time="0.052312">
+  </testcase>
+</testsuite>
