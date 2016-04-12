@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="oradb::installdb CentOS remote oradb extract file2" tests="1" time="0.006813" failures="0" errors="0" skipped="0" timestamp="2016-02-06T21:44:46+01:00">
-  <testcase name="oradb::installdb CentOS remote oradb extract file2 should contain Exec[extract /install/linuxamd64_12c_database_2of2.zip] that requires Exec[extract /install/linuxamd64_12c_database_1of2.zip]" time="0.00623">
-  </testcase>
-</testsuite>

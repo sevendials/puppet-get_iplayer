@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="oradb::installdb CentOS remote with ora_inventory_dir parameter provided and oradb_inst_loc_data fact" tests="2" time="0.175729" failures="0" errors="0" skipped="0" timestamp="2016-02-06T21:44:45+01:00">
-  <testcase name="oradb::installdb CentOS remote with ora_inventory_dir parameter provided and oradb_inst_loc_data fact should contain Db_directory_structure[oracle structure 12.1.0.1] with ora_inventory_dir =&gt; &quot;/ora/inventory/dir/oraInventory&quot;" time="0.171753">
-  </testcase>
-  <testcase name="oradb::installdb CentOS remote with ora_inventory_dir parameter provided and oradb_inst_loc_data fact should contain Oradb::Utils::Dborainst[database orainst 12.1.0.1] with ora_inventory_dir =&gt; &quot;/ora/inventory/dir/oraInventory&quot;" time="0.003101">
-  </testcase>
-</testsuite>

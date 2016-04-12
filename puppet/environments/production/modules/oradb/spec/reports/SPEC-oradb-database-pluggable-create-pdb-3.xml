@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="oradb::database_pluggable create pdb 3" tests="1" time="0.032778" failures="0" errors="0" skipped="0" timestamp="2016-02-06T21:44:43+01:00">
-  <testcase name="oradb::database_pluggable create pdb 3 should raise Puppet::Error with message matching /You must specify an pdb_name/" time="0.032069">
-  </testcase>
-</testsuite>

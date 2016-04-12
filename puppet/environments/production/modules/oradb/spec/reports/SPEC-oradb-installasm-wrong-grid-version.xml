@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="oradb::installasm wrong grid version" tests="1" time="0.11007" failures="0" errors="0" skipped="0" timestamp="2016-02-06T21:44:43+01:00">
-  <testcase name="oradb::installasm wrong grid version should raise Puppet::Error with message matching /Unrecognized database grid install version, use 11.2.0.4, 12.1.0.1 or 12.1.0.2/" time="0.109022">
-  </testcase>
-</testsuite>

@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="oradb::installdb CentOS local oradb install database" tests="1" time="0.018164" failures="0" errors="0" skipped="0" timestamp="2016-02-06T21:44:46+01:00">
-  <testcase name="oradb::installdb CentOS local oradb install database should contain Exec[install oracle database 11.2.0.4_Linux-x86-64] that requires Oradb::Utils::Dborainst[database orainst 11.2.0.4] and File[/install/db_install_11.2.0.4.rsp]" time="0.017558">
-  </testcase>
-</testsuite>

@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="oradb::installdb oracle_base error" tests="1" time="0.055783" failures="0" errors="0" skipped="0" timestamp="2016-02-06T21:44:44+01:00">
-  <testcase name="oradb::installdb oracle_base error should raise Puppet::Error with message matching /You must specify an oracle_base/" time="0.055267">
-  </testcase>
-</testsuite>

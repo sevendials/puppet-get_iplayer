@@ -1,5 +1,0 @@
-mod 'puppetlabs/stdlib', '4.9.0'
-mod 'puppetlabs/concat'
-mod 'biemond/oradb'
-mod 'fiddyspence/sysctl'
-mod 'erwbgy/limits'

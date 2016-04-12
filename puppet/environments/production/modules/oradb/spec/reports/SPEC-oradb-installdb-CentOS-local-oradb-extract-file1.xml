@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="oradb::installdb CentOS local oradb extract file1" tests="1" time="0.007248" failures="0" errors="0" skipped="0" timestamp="2016-02-06T21:44:46+01:00">
-  <testcase name="oradb::installdb CentOS local oradb extract file1 should contain Exec[extract /install/p13390677_112040_Linux-x86-64_1of7.zip] that requires Db_directory_structure[oracle structure 11.2.0.4]" time="0.006706">
-  </testcase>
-</testsuite>

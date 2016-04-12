@@ -1,6 +1,0 @@
-name    'erwbgy-limits'
-version '0.3.1'
-author 'erwbgy'
-license 'Apache License, Version 2.0'
-summary 'Manage entries in /etc/security/limits.conf'
-project_page 'https://github.com/erwbgy/puppet-limits'

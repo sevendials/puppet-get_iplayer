@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="oradb::database init params specified as an Array" tests="1" time="0.066083" failures="0" errors="0" skipped="0" timestamp="2016-02-06T21:44:43+01:00">
-  <testcase name="oradb::database init params specified as an Array should fail" time="0.064966">
-  </testcase>
-</testsuite>

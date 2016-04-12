@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="oradb::installdb CentOS local oracle home" tests="1" time="0.023935" failures="0" errors="0" skipped="0" timestamp="2016-02-06T21:44:46+01:00">
-  <testcase name="oradb::installdb CentOS local oracle home should contain File[/u01/app/oracle/product/11.2/db] that requires Exec[install oracle database 11.2.0.4_Linux-x86-64]" time="0.023127">
-  </testcase>
-</testsuite>
