@@ -22,7 +22,7 @@ class get_iplayer (
   validate_bool($manage_prereqs)
   validate_hash($options_extra)
   validate_absolute_path($output_dir)
-  validate_hash($prereqs)
+  validate_array($prereqs)
   validate_absolute_path($service_env_path)
   validate_string($service_env_template)
   validate_absolute_path($service_path)

@@ -33,14 +33,23 @@ content from a UK-based IP address.
 * Creates get_iplayer service in native service provider
 * Runs service on port 1935
 
+### Setup requirements
+A system running a RHEL-based or Debian-based OS. On RHEL, extra YUM
+repositories must be added to satisfy the package requirements. These
+repositories are EPEL and Nux Dextop. They can be added them manually
+or by including the following Forge modules:
+
+https://forge.puppet.com/stahnma/epel
+https://forge.puppet.com/m0byd1ck/nux
+
 ### Beginning with get_iplayer
 
 ```puppet
  include 'get_iplayer'
 ```
 
-The above gets the client software installed. The command line client can
-be accessed by running:
+The above gets the client software installed. Make sure to follow the setup
+requirements above. The command line client can be accessed by running:
 
  /usr/bin/get_iplayer
 
@@ -101,10 +110,8 @@ This software has the following prerequisites:
  rtmpdump or flvstreamer
  ffmpeg or libav-tools
 
-The module attempts to install these using the ensure_package function. On
-RHEL-based systems, the last two packages require installing a third-part
-YUM repository. If this causes a problem, prerequisite installation can be
-skipped:
+The module attempts to install these using the ensure_package function. If this
+causes a problem, prerequisite installation can be skipped:
 
 ```puppet
  class { 'get_iplayer':

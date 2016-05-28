@@ -28,42 +28,32 @@ class get_iplayer::params {
         '7': {
           $service_template = 'get_iplayer/systemd.erb'
           $service_path     = '/lib/systemd/system/get_iplayer.service'
-          $prereqs  = {
-            'perl' => {},
-            'perl-CGI' => {},
-            'perl-Env' => {},
-            'perl-HTML-Parser' => {},
-            'perl-HTTP-Cookies' => {},
-            'perl-libwww-perl' => {},
-            'perl-XML-Simple' => {},
-            'ffmpeg' => { require => 'Package[nux-dextop-release]' },
-            'rtmpdump' => { require => 'Package[nux-dextop-release]' },
-            'nux-dextop-release' => {
-              'source'    => 'http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm',
-              'provider'  => 'rpm',
-              'require'   => 'Package[epel-release]',
-            },
-          }
+          $prereqs  = [
+            'perl',
+            'perl-CGI',
+            'perl-Env',
+            'perl-HTML-Parser',
+            'perl-HTTP-Cookies',
+            'perl-libwww-perl',
+            'perl-XML-Simple',
+            'ffmpeg',
+            'rtmpdump',
+          ]
         }
         '6': {
           $service_template = 'get_iplayer/init.erb'
           $service_path     = '/etc/init/get_iplayer.conf'
           $service_provider = 'upstart'
 
-          $prereqs  = {
-            'perl' => {},
-            'perl-CGI' => {},
-            'perl-HTML-Parser' => {},
-            'perl-libwww-perl' => {},
-            'perl-XML-Simple' => {},
-            'ffmpeg' => { require => 'Package[nux-dextop-release]' },
-            'rtmpdump' => { require => 'Package[nux-dextop-release]' },
-            'nux-dextop-release' => {
-              'source'    => 'http://li.nux.ro/download/nux/dextop/el6/x86_64/nux-dextop-release-0-2.el6.nux.noarch.rpm',
-              'provider'  => 'rpm',
-              'require'   => 'Package[epel-release]',
-            },
-          }
+          $prereqs  = [
+            'perl',
+            'perl-CGI',
+            'perl-HTML-Parser',
+            'perl-libwww-perl',
+            'perl-XML-Simple',
+            'ffmpeg',
+            'rtmpdump',
+          ]
         }
         default: {
           fail($fail_msg)
@@ -82,13 +72,13 @@ class get_iplayer::params {
               default => 'libav-tools',
           }
 
-          $prereqs  = {
-            'libxml-simple-perl' => {},
-            'rtmpdump' => {},
-            'libhtml-parser-perl' => {},
-            'libwww-perl' => {},
-            $ffmpeg_real => {},
-          }
+          $prereqs  = [
+            'libxml-simple-perl',
+            'rtmpdump',
+            'libhtml-parser-perl',
+            'libwww-perl',
+            $ffmpeg_real,
+          ]
 
           if versioncmp($::os['release']['major'], '15.04') < 0 {
             $service_template = 'get_iplayer/init.erb'

@@ -9,8 +9,8 @@ class get_iplayer::install inherits get_iplayer {
   )
 
   if $get_iplayer::manage_prereqs {
-    each($get_iplayer::prereqs) | String $resource, Hash $attributes| {
-      ensure_resource('package', $resource, $attributes)
+    each($get_iplayer::prereqs) | String $resource | {
+      ensure_resource('package', $resource)
     }
   }
 
