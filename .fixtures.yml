@@ -1,5 +1,7 @@
 fixtures:
   repositories:
+    'epel':   'git://github.com/stahnma/puppet-module-epel.git'
+    'nux':    'git://github.com/m0byd1ck/puppet-module-nux.git'
     "staging": "git://github.com/nanliu/puppet-staging.git"
     "stdlib": "git://github.com/puppetlabs/puppetlabs-stdlib.git"
 

@@ -9,4 +9,10 @@
 # Learn more about module testing here:
 # http://docs.puppetlabs.com/guides/tests_smoke.html
 #
+if $::osfamily == 'RedHat' {
+  class { ['nux','epel']:
+    before => Class['get_iplayer'],
+  }
+}
+
 include get_iplayer
