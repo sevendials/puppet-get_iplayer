@@ -4,7 +4,7 @@ class get_iplayer::params {
 
   $version  = '2.95'
 
-  $source_location = 'ftp://ftp.infradead.org/pub/get_iplayer/get_iplayer-__VERSION__.tar.gz'
+  $source_location = 'https://github.com/get-iplayer/get_iplayer/archive/v__VERSION__.tar.gz'
 
   $output_dir = '/var/get_iplayer'
 
