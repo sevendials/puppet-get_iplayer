@@ -2,7 +2,7 @@ class get_iplayer::params {
 
   $conf_dir = '/etc/get_iplayer'
 
-  $version  = '2.94'
+  $version  = '2.95'
 
   $source_location = 'ftp://ftp.infradead.org/pub/get_iplayer/get_iplayer-__VERSION__.tar.gz'
 

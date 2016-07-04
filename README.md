@@ -92,7 +92,7 @@ versions and set the version manually:
 
 ```puppet
  class { 'get_iplayer':
-   version => '2.94'
+   version => '2.95'
  }
 ```
 
