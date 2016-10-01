@@ -14,7 +14,7 @@ class get_iplayer::install inherits get_iplayer {
     }
   }
 
-  staging::deploy { "get_iplayer-${get_iplayer::version}.tar.gz":
+  staging::deploy { "v${get_iplayer::version}.zip":
     source => $source_location,
     target => $get_iplayer::base_dir,
   }
