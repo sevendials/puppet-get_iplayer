@@ -9,6 +9,7 @@ describe 'get_iplayer' do
       :operatingsystemrelease => '14.04',
       :os                     => {'release' => { 'major' => '14.04'}},
       :staging_http_get       => 'curl',
+      :path                   => '/opt',
     } }
     it { should contain_class('get_iplayer') }
   end
