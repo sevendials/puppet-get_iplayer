@@ -12,5 +12,11 @@ describe 'get_iplayer' do
       :path                   => '/opt',
     } }
     it { should contain_class('get_iplayer') }
+    it { should contain_class('get_iplayer::install') }
+    it { should contain_class('get_iplayer::config') }
+    it { should contain_class('get_iplayer::service') }
+    it { should contain_class('get_iplayer::params') }
   end
+
+  at_exit { RSpec::Puppet::Coverage.report! }
 end
