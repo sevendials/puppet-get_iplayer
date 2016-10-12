@@ -29,6 +29,11 @@ describe 'get_iplayer' do
     it { should contain_file('get_iplayer.service_env') }
     it { should contain_service('get_iplayer') }
     it { should contain_staging__deploy('v2.94.zip') }
+    it { should contain_package('libav-tools') }
+    it { should contain_package('libhtml-parser-perl') }
+    it { should contain_package('libwww-perl') }
+    it { should contain_package('libxml-simple-perl') }
+    it { should contain_package('rtmpdump') }
   end
 
   at_exit { RSpec::Puppet::Coverage.report! }
