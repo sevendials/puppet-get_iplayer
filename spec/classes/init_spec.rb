@@ -7,7 +7,8 @@ describe 'get_iplayer' do
       :ipaddress              => '192.168.0.1',
       :osfamily               => 'Debian',
       :operatingsystemrelease => '14.04',
-      :os                     => {'release' => { 'major' => '14.04'}}
+      :os                     => {'release' => { 'major' => '14.04'}},
+      :staging_http_get       => 'curl',
     } }
     it { should contain_class('get_iplayer') }
   end
