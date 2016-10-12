@@ -1,8 +1,6 @@
 language: ruby
-env:
-  "TRAVIS_BUILD_DIR=get_iplayer"
 rvm:
- - "2.1.1"
+ - "2.1.6"
 # uncomment this line if your project needs to run something other than `rake`:
 script:
   - bundle exec rake release_checks
