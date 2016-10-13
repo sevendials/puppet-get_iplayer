@@ -3,7 +3,7 @@ rvm:
  - "2.1.6"
 # uncomment this line if your project needs to run something other than `rake`:
 script:
-  - bundle exec rake release_checks
+  - bundle exec rake release_checks rubocop
 notifications:
   email:
     - christj@gmail.com

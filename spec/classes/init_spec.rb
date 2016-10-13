@@ -1,19 +1,22 @@
 require 'spec_helper'
 describe 'get_iplayer' do
-
   context 'with defaults for all parameters' do
-    let(:facts) { {
-      :operatingsystem        => 'Ubuntu',
-      :ipaddress              => '192.168.0.1',
-      :osfamily               => 'Debian',
-      :operatingsystemrelease => '14.04',
-      :os                     => {'release' => { 'major' => '14.04'}},
-      :staging_http_get       => 'curl',
-      :path                   => '/opt',
-    } }
-    let(:params) { {
-      version: '2.94',
-    } }
+    let(:facts) do
+      {
+        operatingsystem: 'Ubuntu',
+        ipaddress: '192.168.0.1',
+        osfamily: 'Debian',
+        operatingsystemrelease: '14.04',
+        os: { 'release' => { 'major' => '14.04' } },
+        staging_http_get: 'curl',
+        path: '/opt'
+      }
+    end
+    let(:params) do
+      {
+        version: '2.94'
+      }
+    end
     it { should contain_class('get_iplayer') }
     it { should contain_class('get_iplayer::install') }
     it { should contain_class('get_iplayer::config') }
