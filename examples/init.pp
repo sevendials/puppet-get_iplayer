@@ -15,5 +15,5 @@ if $::osfamily == 'RedHat' {
   }
 }
 
-package { 'unzip': ensure => 'installed' } ->
-class { 'get_iplayer': version => '2.97' }
+package { ['unzip','curl']: ensure => 'installed' } ->
+class { 'get_iplayer': }

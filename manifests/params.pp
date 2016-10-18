@@ -2,7 +2,7 @@ class get_iplayer::params {
 
   $conf_dir = '/etc/get_iplayer'
 
-  $version  = '2.94'
+  $version  = '2.97'
 
   $source_location = 'https://github.com/get-iplayer/get_iplayer/archive/v__VERSION__.zip'
 
@@ -18,16 +18,29 @@ class get_iplayer::params {
 
   $listen_address = '127.0.0.1'
 
+  $service_env_template = 'get_iplayer/service_env.erb'
+
+  case $::service_provider {
+    'systemd': {
+      $service_template = 'get_iplayer/systemd.erb'
+      $service_path     = '/lib/systemd/system/get_iplayer.service'
+    }
+    'upstart': {
+      $service_template = 'get_iplayer/init.erb'
+      $service_path     = '/etc/init/get_iplayer.conf'
+    }
+    default: {
+      fail($fail_msg)
+    }
+  }
+
   case $::osfamily {
     'RedHat': {
 
-      $service_env_template = 'get_iplayer/service_env.erb'
       $service_env_path     = '/etc/sysconfig/get_iplayer'
 
       case $::os['release']['major'] {
         '7': {
-          $service_template = 'get_iplayer/systemd.erb'
-          $service_path     = '/lib/systemd/system/get_iplayer.service'
           $prereqs  = [
             'perl',
             'perl-CGI',
@@ -41,10 +54,6 @@ class get_iplayer::params {
           ]
         }
         '6': {
-          $service_template = 'get_iplayer/init.erb'
-          $service_path     = '/etc/init/get_iplayer.conf'
-          $service_provider = 'upstart'
-
           $prereqs  = [
             'perl',
             'perl-CGI',
@@ -64,7 +73,6 @@ class get_iplayer::params {
     'Debian': {
       case $::operatingsystem {
         'Ubuntu': {
-          $service_env_template = 'get_iplayer/service_env.erb'
           $service_env_path     = '/etc/default/get_iplayer'
 
           $ffmpeg_real = versioncmp($::os['release']['major'], '15.04') ? {
@@ -79,16 +87,6 @@ class get_iplayer::params {
             'libwww-perl',
             $ffmpeg_real,
           ]
-
-          if versioncmp($::os['release']['major'], '15.04') < 0 {
-            $service_template = 'get_iplayer/init.erb'
-            $service_path     = '/etc/init/get_iplayer.conf'
-            $service_provider = 'upstart'
-          }
-          else {
-            $service_template = 'get_iplayer/systemd.erb'
-            $service_path     = '/lib/systemd/system/get_iplayer.service'
-          }
 
         }
         default: {
