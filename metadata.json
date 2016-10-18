@@ -1,6 +1,6 @@
 {
   "name": "sevendials-get_iplayer",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "author": "sevendials",
   "summary": "Installs get_iplayer. Configures service for web-based PVR",
   "license": "Apache-2.0",
