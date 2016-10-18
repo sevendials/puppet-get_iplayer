@@ -9,7 +9,8 @@ describe 'get_iplayer' do
         operatingsystemrelease: '14.04',
         os: { 'release' => { 'major' => '14.04' } },
         staging_http_get: 'curl',
-        path: '/opt'
+        path: '/opt',
+        service_provider: 'upstart',
       }
     end
     let(:params) do
