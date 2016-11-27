@@ -1,23 +1,14 @@
 class get_iplayer::params {
 
   $conf_dir = '/etc/get_iplayer'
-
   $version  = '2.97'
-
   $source_location = 'https://github.com/get-iplayer/get_iplayer/archive/v__VERSION__.zip'
-
   $output_dir = '/var/get_iplayer'
-
   $base_dir = '/usr/local'
-
   $fail_msg = "OS ${::operatingsystem} ${::operatingsystemrelease} is not supported"
-
   $manage_prereqs = true
-
   $listen_port    = '1935'
-
   $listen_address = '127.0.0.1'
-
   $service_env_template = 'get_iplayer/service_env.erb'
 
   case $::service_provider {
