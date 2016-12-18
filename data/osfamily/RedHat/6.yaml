@@ -1,8 +1,4 @@
 ---
-get_iplayer::service_template: 'get_iplayer/init.erb'
-get_iplayer::service_path:     '/etc/init/get_iplayer.conf'
-get_iplayer::service_provider: 'upstart'
-
 get_iplayer::prereqs:
   - perl
   - perl-CGI
