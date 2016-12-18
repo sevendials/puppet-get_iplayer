@@ -1,3 +1,4 @@
+# installs get_iplayer
 class get_iplayer::install inherits get_iplayer {
 
   $instdir = "${get_iplayer::base_dir}/get_iplayer-${get_iplayer::version}"
@@ -9,14 +10,20 @@ class get_iplayer::install inherits get_iplayer {
   )
 
   if $get_iplayer::manage_prereqs {
-    each($get_iplayer::prereqs) | String $resource | {
+    # remove ffmpeg if libav-tools is installing
+    $prereqs = $get_iplayer::prereqs.member('libav-tools') ? {
+      true  => $prereqs.delete('ffmpeg'),
+      false => $prereqs,
+    }
+    each($prereqs) | String $resource | {
       ensure_resource('package', $resource)
     }
   }
 
   staging::deploy { "v${get_iplayer::version}.zip":
-    source => $source_location,
-    target => $get_iplayer::base_dir,
+    source  => $source_location,
+    target  => $get_iplayer::base_dir,
+    creates => "${get_iplayer::base_dir}/get_iplayer-${get_iplayer::version}"
   }
   ->
   file { 'get_iplayer.bin':

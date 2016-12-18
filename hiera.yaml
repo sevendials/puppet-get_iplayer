@@ -10,5 +10,7 @@ hierarchy:
     backend: yaml
   - name: "osfamily/%{facts.os.family}"
     backend: yaml
+  - name: "service_provider/%{facts.service_provider}"
+    backend: yaml
   - name: "common"
     backend: yaml

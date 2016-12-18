@@ -1,33 +1,18 @@
 class get_iplayer (
-  $base_dir,
-  $conf_dir,
-  $listen_address,
-  $listen_port,
-  $manage_prereqs,
-  $options_extra,
-  $output_dir,
-  $prereqs,
-  $service_env_path,
-  $service_path,
-  $service_template,
-  $service_provider,
-  $source_location,
-  $version,
+  String $base_dir,
+  String $conf_dir,
+  String $listen_address,
+  Integer $listen_port,
+  Boolean $manage_prereqs,
+  Hash $options_extra,
+  String $output_dir,
+  Array $prereqs,
+  String $service_env_path,
+  String $service_path,
+  String $service_template,
+  String $source_location,
+  String $version,
 ) {
-
-  validate_absolute_path($base_dir)
-  validate_absolute_path($conf_dir)
-  validate_ipv4_address($listen_address)
-  validate_integer($listen_port)
-  validate_bool($manage_prereqs)
-  validate_hash($options_extra)
-  validate_absolute_path($output_dir)
-  validate_array($prereqs)
-  validate_absolute_path($service_env_path)
-  validate_absolute_path($service_path)
-  validate_string($service_template)
-  validate_string($source_location)
-  validate_numeric($version)
 
   anchor { 'get_iplayer::begin': } ->
   class { '::get_iplayer::install': } ->

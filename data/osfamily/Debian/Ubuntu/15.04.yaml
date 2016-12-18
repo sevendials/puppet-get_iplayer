@@ -1,4 +1,3 @@
 ---
 get_iplayer::prereqs:
-  'ffmpeg':
-    name: 'libav-tools'
+  - libav-tools

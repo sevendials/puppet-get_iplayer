@@ -1,10 +1,10 @@
 ---
 get_iplayer::prereqs:
-  "libxml-simple-perl":   {}
-  "rtmpdump":             {}
-  'libhtml-parser-perl':  {}
-  'libwww-perl':          {}
-  'ffmpeg':               {}
+  - libxml-simple-perl
+  - rtmpdump
+  - libhtml-parser-perl
+  - libwww-perl
+  - ffmpeg
 
 get_iplayer::service_template:  'get_iplayer/systemd.erb'
 get_iplayer::service_path:      '/lib/systemd/system/get_iplayer.service'

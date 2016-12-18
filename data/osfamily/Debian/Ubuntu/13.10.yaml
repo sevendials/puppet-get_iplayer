@@ -1,8 +1,3 @@
 ---
 get_iplayer::prereqs:
-  'ffmpeg':
-    name: 'libav-tools'
-
-get_iplayer::service_template:  'get_iplayer/init.erb'
-get_iplayer::service_path:      '/etc/init/get_iplayer.conf'
-get_iplayer::service_provider:  'upstart'
+  - libav-tools
