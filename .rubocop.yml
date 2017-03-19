@@ -69,7 +69,7 @@ Style/WhileUntilModifier:
 Lint/AmbiguousRegexpLiteral:
   Enabled: True
 
-Lint/Eval:
+Security/Eval:
   Enabled: True
 
 Lint/BlockAlignment:
@@ -297,7 +297,7 @@ Style/EmptyLiteral:
 Metrics/LineLength:
   Enabled: False
 
-Style/MethodCallParentheses:
+Style/MethodCallWithoutArgsParentheses:
   Enabled: True
 
 Style/MethodDefParentheses:
@@ -481,6 +481,9 @@ Style/MultilineBlockLayout:
 
 # 'Complexity' is very relative
 Metrics/AbcSize:
+  Enabled: False
+
+Metrics/BlockLength:
   Enabled: False
 
 # 'Complexity' is very relative
