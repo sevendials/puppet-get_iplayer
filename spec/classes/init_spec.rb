@@ -7,7 +7,7 @@ describe 'get_iplayer' do
         ipaddress: '192.168.0.1',
         osfamily: 'Debian',
         operatingsystemrelease: '14.04',
-        os: { 'release' => { 'major' => '14.04' } },
+        os: { 'family' => 'Debian', 'name' => 'Ubuntu', 'release' => { 'major' => '14.04' } },
         staging_http_get: 'curl',
         path: '/opt',
         service_provider: 'upstart'
@@ -22,7 +22,6 @@ describe 'get_iplayer' do
     it { should contain_class('get_iplayer::install') }
     it { should contain_class('get_iplayer::config') }
     it { should contain_class('get_iplayer::service') }
-    it { should contain_class('get_iplayer::params') }
     it { should contain_anchor('get_iplayer::begin') }
     it { should contain_anchor('get_iplayer::end') }
     it { should contain_file('get_iplayer.bin') }
@@ -35,6 +34,7 @@ describe 'get_iplayer' do
     it { should contain_staging__deploy('v2.94.zip') }
     it { should contain_package('libav-tools') }
     it { should contain_package('libhtml-parser-perl') }
+    it { should contain_package('libcgi-pm-perl') }
     it { should contain_package('libwww-perl') }
     it { should contain_package('libxml-simple-perl') }
     it { should contain_package('rtmpdump') }
