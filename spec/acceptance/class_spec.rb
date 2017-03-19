@@ -4,6 +4,9 @@ describe 'get_iplayer class:', :unless => UNSUPPORTED_PLATFORMS.include?(fact('o
   it 'should run successfully' do
     pp = "package{['curl','unzip']: ensure => present} -> class { 'get_iplayer': }"
 
+    if fact('osfamily') == 'RedHat'
+      pp =  "class { ['nux','epel']:} -> " + pp
+    end
     # Apply twice to ensure no errors the second time.
     apply_manifest(pp, :catch_failures => true) do |r|
       expect(r.stderr).not_to match(/error/i)
@@ -18,6 +21,9 @@ describe 'get_iplayer class:', :unless => UNSUPPORTED_PLATFORMS.include?(fact('o
   context 'service_ensure => stopped:' do
     it 'runs successfully' do
       pp = "package{['curl','unzip']: ensure => present} -> class { 'get_iplayer': service_ensure => stopped }"
+      if fact('osfamily') == 'RedHat'
+        pp =  "class { ['nux','epel']:} -> " + pp
+      end
 
       apply_manifest(pp, :catch_failures => true) do |r|
         expect(r.stderr).not_to match(/error/i)
@@ -28,6 +34,9 @@ describe 'get_iplayer class:', :unless => UNSUPPORTED_PLATFORMS.include?(fact('o
   context 'service_ensure => running:' do
     it 'runs successfully' do
       pp = "package{['curl','unzip']: ensure => present} -> class { 'get_iplayer': service_ensure => running }"
+      if fact('osfamily') == 'RedHat'
+        pp =  "class { ['nux','epel']:} -> " + pp
+      end
 
       apply_manifest(pp, :catch_failures => true) do |r|
         expect(r.stderr).not_to match(/error/i)

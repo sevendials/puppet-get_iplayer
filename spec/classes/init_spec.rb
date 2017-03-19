@@ -22,8 +22,6 @@ describe 'get_iplayer' do
     it { should contain_class('get_iplayer::install') }
     it { should contain_class('get_iplayer::config') }
     it { should contain_class('get_iplayer::service') }
-    it { should contain_anchor('get_iplayer::begin') }
-    it { should contain_anchor('get_iplayer::end') }
     it { should contain_file('get_iplayer.bin') }
     it { should contain_file('get_iplayer.conf_dir') }
     it { should contain_file('get_iplayer.options') }

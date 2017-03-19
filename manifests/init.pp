@@ -8,6 +8,8 @@ class get_iplayer (
   Hash $options_extra,
   String $output_dir,
   Array $prereqs,
+  Boolean $service_enable,
+  Enum['stopped','running'] $service_ensure,
   String $service_env_path,
   String $service_path,
   String $service_template,
@@ -15,10 +17,12 @@ class get_iplayer (
   String $version,
 ) {
 
-  anchor { 'get_iplayer::begin': } ->
-  class { '::get_iplayer::install': } ->
-  class { '::get_iplayer::config': } ~>
-  class { '::get_iplayer::service': } ->
-  anchor { 'get_iplayer::end': }
+  contain get_iplayer::install
+  contain get_iplayer::config
+  contain get_iplayer::service
+
+  Class['::get_iplayer::install'] ->
+  Class['::get_iplayer::config'] ~>
+  Class['::get_iplayer::service']
 
 }

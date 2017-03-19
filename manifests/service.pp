@@ -7,7 +7,7 @@ class get_iplayer::service inherits get_iplayer {
   }
 
   service { 'get_iplayer':
-    ensure   => 'running',
+    ensure   => $get_iplayer::service_enable,
     enable   => true,
     provider => $provider,
   }
