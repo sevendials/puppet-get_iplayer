@@ -2,7 +2,7 @@ require 'spec_helper_acceptance'
 
 describe 'get_iplayer class:', :unless => UNSUPPORTED_PLATFORMS.include?(fact('osfamily')) do
   it 'should run successfully' do
-    pp = "class { 'get_iplayer': }"
+    pp = "package{['curl','unzip']: ensure => present} -> class { 'get_iplayer': }"
 
     # Apply twice to ensure no errors the second time.
     apply_manifest(pp, :catch_failures => true) do |r|
@@ -17,7 +17,7 @@ describe 'get_iplayer class:', :unless => UNSUPPORTED_PLATFORMS.include?(fact('o
 
   context 'service_ensure => stopped:' do
     it 'runs successfully' do
-      pp = "class { 'get_iplayer': service_ensure => stopped }"
+      pp = "package{['curl','unzip']: ensure => present} -> class { 'get_iplayer': service_ensure => stopped }"
 
       apply_manifest(pp, :catch_failures => true) do |r|
         expect(r.stderr).not_to match(/error/i)
@@ -27,7 +27,7 @@ describe 'get_iplayer class:', :unless => UNSUPPORTED_PLATFORMS.include?(fact('o
 
   context 'service_ensure => running:' do
     it 'runs successfully' do
-      pp = "class { 'get_iplayer': service_ensure => running }"
+      pp = "package{['curl','unzip']: ensure => present} -> class { 'get_iplayer': service_ensure => running }"
 
       apply_manifest(pp, :catch_failures => true) do |r|
         expect(r.stderr).not_to match(/error/i)
