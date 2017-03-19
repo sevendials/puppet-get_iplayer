@@ -39,7 +39,7 @@ class get_iplayer::install inherits get_iplayer {
 
   file { 'get_iplayer.service':
     path    => $get_iplayer::service_path,
-    content => template($get_iplayer::service_template),
+    content => epp($get_iplayer::service_template),
   }
 
   file { 'get_iplayer.output_dir':

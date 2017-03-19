@@ -1,0 +1,10 @@
+start on (filesystem and net-device-up IFACE=lo)
+stop on runlevel [!2345]
+
+# give time to send info to trackers
+kill timeout 30
+
+script
+  export GETIPLAYERUSERPREFS=<%= $get_iplayer::conf_dir %>
+  exec /usr/bin/perl <%= $get_iplayer::install::instdir %>/get_iplayer.cgi -p <%= $get_iplayer::listen_port %> -g <%= $get_iplayer::install::instdir %>/get_iplayer -l <%= $get_iplayer::listen_address %>
+end script

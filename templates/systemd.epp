@@ -1,0 +1,12 @@
+[Unit]
+Description=get_iplayer
+Wants=basic.target
+After=basic.target network.target
+
+[Service]
+EnvironmentFile=-<%= $get_iplayer::service_env_path %>
+ExecStart=/usr/bin/perl <%= $get_iplayer::install::instdir %>/get_iplayer.cgi -p <%= $get_iplayer::listen_port %> -g <%= $get_iplayer::install::instdir %>/get_iplayer -l <%= $get_iplayer::listen_address %>
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
