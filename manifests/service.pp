@@ -1,4 +1,4 @@
-# web service
+# manage get_iplayer service
 class get_iplayer::service inherits get_iplayer {
 
   $provider = $get_iplayer::service_provider ? {

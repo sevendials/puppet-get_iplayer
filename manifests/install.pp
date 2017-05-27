@@ -1,4 +1,4 @@
-# installs get_iplayer
+# install get_iplayer
 class get_iplayer::install inherits get_iplayer {
 
   $instdir = "${get_iplayer::base_dir}/get_iplayer-${get_iplayer::version}"
@@ -21,12 +21,11 @@ class get_iplayer::install inherits get_iplayer {
   }
 
   staging::deploy { "v${get_iplayer::version}.zip":
+    creates => $instdir,
     source  => $source_location,
     target  => $get_iplayer::base_dir,
-    creates => "${get_iplayer::base_dir}/get_iplayer-${get_iplayer::version}"
   }
-  ->
-  file { 'get_iplayer.bin':
+  -> file { 'get_iplayer.bin':
     ensure => 'link',
     name   => '/usr/bin/get_iplayer',
     target => "${instdir}/get_iplayer",

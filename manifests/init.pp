@@ -1,4 +1,4 @@
-# main class
+# main get_iplayer class
 class get_iplayer (
   String $base_dir,
   String $conf_dir,
