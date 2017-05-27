@@ -20,8 +20,7 @@ class get_iplayer::install inherits get_iplayer {
     source  => $source_location,
     target  => $get_iplayer::base_dir,
   }
-  ->
-  file { 'get_iplayer.bin':
+  -> file { 'get_iplayer.bin':
     ensure => 'link',
     name   => '/usr/bin/get_iplayer',
     target => "${instdir}/get_iplayer",
