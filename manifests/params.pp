@@ -1,7 +1,8 @@
+# default parameters for get_iplayer
 class get_iplayer::params {
 
   $conf_dir = '/etc/get_iplayer'
-  $version  = '2.97'
+  $version  = '3.01'
   $source_location = 'https://github.com/get-iplayer/get_iplayer/archive/v__VERSION__.zip'
   $output_dir = '/var/get_iplayer'
   $base_dir = '/usr/local'

@@ -1,3 +1,4 @@
+# main get_iplayer class
 class get_iplayer (
   $base_dir               = $get_iplayer::params::base_dir,
   $conf_dir               = $get_iplayer::params::conf_dir,

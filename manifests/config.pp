@@ -1,3 +1,4 @@
+# configure get_iplayer
 class get_iplayer::config inherits get_iplayer {
 
   $options_default = {
