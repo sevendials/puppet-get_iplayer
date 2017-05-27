@@ -372,6 +372,10 @@ Style/EvenOdd:
 
 Style/FileName:
   Enabled: True
+  Exclude:
+    - Vagrantfile
+    - Rakefile
+    - Gemfile
 
 Style/For:
   Enabled: True
