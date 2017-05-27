@@ -14,6 +14,7 @@
     {"name":"nanliu/staging","version_requirement":">=1.0.0 <2.0.0"}
   ],
   "description": "Module for installing get_iplayer",
+  "data_provider": "hiera",
   "operatingsystem_support": [
     {
       "operatingsystem": "RedHat",
