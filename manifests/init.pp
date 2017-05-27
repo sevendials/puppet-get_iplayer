@@ -31,10 +31,10 @@ class get_iplayer (
   validate_string($source_location)
   validate_numeric($version)
 
-  anchor { 'get_iplayer::begin': } ->
-  class { '::get_iplayer::install': } ->
-  class { '::get_iplayer::config': } ~>
-  class { '::get_iplayer::service': } ->
-  anchor { 'get_iplayer::end': }
+  anchor { 'get_iplayer::begin': }
+  -> class { '::get_iplayer::install': }
+  -> class { '::get_iplayer::config': }
+  ~> class { '::get_iplayer::service': }
+  -> anchor { 'get_iplayer::end': }
 
 }

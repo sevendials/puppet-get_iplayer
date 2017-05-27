@@ -1,6 +1,5 @@
 package { ['git', 'ruby-devel', 'rubygem-bundler']: }
-->
-exec {
+-> exec {
   default:
     cwd      => '/vagrant',
     provider => 'shell',
