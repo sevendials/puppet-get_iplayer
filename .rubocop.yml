@@ -8,6 +8,10 @@ AllCops:
     - .vendor/**/*
     - pkg/**/*
     - spec/fixtures/**/*
+
+Bundler/DuplicatedGem:
+  Enabled: False
+
 Lint/ConditionPosition:
   Enabled: True
 
@@ -74,7 +78,7 @@ Lint/AmbiguousRegexpLiteral:
   Enabled: True
 
 Security/Eval:
-  Enabled: True
+  Enabled: False
 
 Lint/BlockAlignment:
   Enabled: True
@@ -456,6 +460,8 @@ Style/RescueModifier:
 Style/RegexpLiteral:
   EnforcedStyle: percent_r
   Enabled: True
+  Exclude:
+    - Gemfile
 
 Lint/UnderscorePrefixedVariableName:
   Enabled: True
