@@ -1,6 +1,6 @@
 language: ruby
 rvm:
- - "2.1.6"
+ - "2.1.8"
 # uncomment this line if your project needs to run something other than `rake`:
 script:
   - bundle exec rake release_checks rubocop
