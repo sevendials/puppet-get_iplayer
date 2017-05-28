@@ -21,8 +21,8 @@ class get_iplayer (
   contain get_iplayer::config
   contain get_iplayer::service
 
-  Class['::get_iplayer::install'] ->
-  Class['::get_iplayer::config'] ~>
-  Class['::get_iplayer::service']
+  Class['::get_iplayer::install']
+  -> Class['::get_iplayer::config']
+  ~> Class['::get_iplayer::service']
 
 }
