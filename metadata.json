@@ -1,6 +1,6 @@
 {
   "name": "sevendials-get_iplayer",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "author": "sevendials",
   "summary": "Installs get_iplayer. Configures service for web-based PVR",
   "license": "Apache-2.0",
@@ -8,10 +8,22 @@
   "project_page": "https://github.com/sevendials/puppet-get_iplayer",
   "issues_url": "https://github.com/sevendials/puppet-get_iplayer/issues",
   "dependencies": [
-    {"name":"puppetlabs/stdlib","version_requirement":">=4.11.0 <5.0.0"},
-    {"name":"m0byd1ck/nux","version_requirement":">=1.0.0 <2.0.0"},
-    {"name":"stahnma/epel","version_requirement":">=1.0.0 <2.0.0"},
-    {"name":"nanliu/staging","version_requirement":">=1.0.0 <2.0.0"}
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">=4.11.0 <5.0.0"
+    },
+    {
+      "name": "m0byd1ck/nux",
+      "version_requirement": ">=1.0.0 <2.0.0"
+    },
+    {
+      "name": "stahnma/epel",
+      "version_requirement": ">=1.0.0 <2.0.0"
+    },
+    {
+      "name": "nanliu/staging",
+      "version_requirement": ">=1.0.0 <2.0.0"
+    }
   ],
   "description": "Module for installing get_iplayer",
   "data_provider": "hiera",
