@@ -1,3 +1,4 @@
 .vagrant
 spec/fixtures
 Gemfile.lock
+log
