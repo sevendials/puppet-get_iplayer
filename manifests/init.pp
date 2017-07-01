@@ -12,6 +12,7 @@ class get_iplayer (
   Enum['stopped','running'] $service_ensure,
   String $service_env_path,
   String $service_path,
+  String $service_provider,
   String $service_template,
   String $source_location,
   String $version,
