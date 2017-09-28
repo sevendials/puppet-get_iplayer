@@ -3,9 +3,8 @@ pipeline {
     stages {
         stage('Example Build') {
             steps {
-                sh 'which ruby'
-                sh 'pwd'
-
+                sh 'bundle install'
+                sh 'bundle exec rake spec'
             }
         }
     }
