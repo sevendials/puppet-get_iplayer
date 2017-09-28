@@ -5,6 +5,7 @@ pipeline {
             steps {
                 sh 'which ruby'
                 sh 'pwd'
+
             }
         }
     }
