@@ -1,7 +1,7 @@
 pipeline {
     agent {
         dockerfile {
-            dir 'jenkins'
+            additionalBuildArgs '-f Dockerfile.jenkins'
         }
     }
     stages {
