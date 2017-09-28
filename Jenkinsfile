@@ -4,6 +4,7 @@ pipeline {
         stage('Example Build') {
             steps {
                 sh 'which ruby'
+                sh 'pwd'
             }
         }
     }
