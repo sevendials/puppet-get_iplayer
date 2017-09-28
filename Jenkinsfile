@@ -1,10 +1,12 @@
 pipeline {
-    agent { docker 'ruby:2.2.8' }
+    agent {
+        dockerfile {
+            dir 'jenkins'
+        }
+    }
     stages {
-        stage('Example Build') {
+        stage('Unit test') {
             steps {
-                sh 'bundle install'
-                sh 'git config --global user.email "you@example.com"; git config --global user.name "Your Name"'
                 sh 'bundle exec rake spec'
             }
         }
