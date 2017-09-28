@@ -1,4 +1,4 @@
-USE ruby:2.2.8
+FROM ruby:2.2.8
 COPY Gemfile .
 RUN bundle install
     git config --global user.email "you@example.com"
