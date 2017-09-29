@@ -2,6 +2,7 @@ pipeline {
     agent {
         dockerfile {
           filename 'Dockerfile.jenkins'
+          additionalBuildArgs '--build-arg JENKINS_PASSWD="$(getent passwd $USER)"'
         }
     }
     stages {
