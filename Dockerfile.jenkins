@@ -2,4 +2,4 @@ FROM ruby:2.2.8
 ARG JENKINS_PASSWD
 COPY Gemfile .
 RUN echo $JENKINS_PASSWD >> /etc/passwd
-RUN bundle install
+RUN bundle install --system
