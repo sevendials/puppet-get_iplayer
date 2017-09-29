@@ -1,6 +1,8 @@
 pipeline {
     agent {
-        dockerfile true
+        dockerfile {
+          filename 'Dockerfile.jenkins'
+        }
     }
     stages {
         stage('Unit test') {
