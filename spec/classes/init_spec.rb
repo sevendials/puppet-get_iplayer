@@ -1,17 +1,7 @@
 require 'spec_helper'
 describe 'get_iplayer' do
   context 'with defaults for all parameters' do
-    # Read supported OSes from metadata.json
-    metadata_path = File.dirname(__FILE__) + '/../../metadata.json'
-    metadata = JSON.parse(File.read(metadata_path))
-    supported_os = metadata['operatingsystem_support']
-
-    test_on = {
-      hardwaremodels: %w[x86_64],
-      supported_os: supported_os
-    }
-
-    on_supported_os(test_on).each do |os, facts|
+    on_supported_os.each do |os, facts|
       context "on #{os}" do
         let(:facts) do
           facts
