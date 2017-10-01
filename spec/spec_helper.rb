@@ -12,7 +12,7 @@ end
 
 RSpec.configure do |c|
   c.after(:suite) do
-    at_exit(exit 1) if RSpec::Puppet::Coverage.report!(90)
+    at_exit(exit(1)) if RSpec::Puppet::Coverage.report!(90)
   end
 end
 
