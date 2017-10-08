@@ -2,7 +2,7 @@ pipeline {
     agent {
         dockerfile {
           filename 'Dockerfile.jenkins'
-          additionalBuildArgs '--build-arg JENKINS_PASSWD="$(getent passwd $USER)"'
+          additionalBuildArgs '--build-arg JENKINS_PASSWD="$(getent passwd $USER)" --build-arg JENKINS_USER="$USER"'
           args '-v /var/run/docker.sock:/var/run/docker.sock'
         }
     }
