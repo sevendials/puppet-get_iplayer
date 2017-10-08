@@ -2,8 +2,8 @@ pipeline {
     agent {
         dockerfile {
           filename 'Dockerfile.jenkins'
-          additionalBuildArgs '--build-arg JENKINS_PASSWD="$(getent passwd $USER)" --build-arg JENKINS_USER="$USER"'
-          args '-v /var/run/docker.sock:/var/run/docker.sock'
+          additionalBuildArgs '--build-arg JENKINS_PASSWD="$(getent passwd $USER)" --build-arg JENKINS_USER="$USER" --build-arg DOCKER_GROUP="$(getent group docker)"'
+          args '-v /var/run/docker.sock:/run/docker.sock'
         }
     }
     stages {
@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Acceptance test') {
             steps {
-                sh 'rake beaker:centos-7'
+                sh 'sg docker "rake beaker:centos-7"'
             }
         }
     }
