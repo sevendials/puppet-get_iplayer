@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Acceptance test') {
             steps {
-                sh 'echo rake beaker:centos-7'
+                sh 'rake beaker:centos-7'
             }
         }
     }
