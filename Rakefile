@@ -17,3 +17,32 @@ task :validate do
     sh "erb -P -x -T '-' #{template} | ruby -c"
   end
 end
+
+desc 'Generate nodesets'
+task :gen_nodeset do
+  require 'beaker-hostgenerator'
+  require 'securerandom'
+  require 'fileutils'
+  require 'json'
+
+  supported_oses = JSON::parse(File.read('metadata.json'))['operatingsystem_support']
+
+  suts = supported_oses.map do |o|
+    operatingsystem = o['operatingsystem'].sub('OracleLinux','Oracle').downcase
+    o['operatingsystemrelease'].map do |r|
+      operatingsystemrelease = r.sub('.','')
+      operatingsystem + operatingsystemrelease + '-64a{hypervisor=docker}'
+    end
+  end.flatten
+
+  suts.each do |sut|
+    cli = BeakerHostGenerator::CLI.new(['--global-config','{type=oss}',sut])
+    nodeset_dir = "tmp/mynodesets"
+    nodeset = "#{nodeset_dir}/#{sut}-#{SecureRandom.uuid}.yaml"
+    FileUtils.mkdir_p(nodeset_dir)
+    File.open(nodeset, 'w') do |fh|
+      fh.print(cli.execute)
+    end
+    puts nodeset
+  end
+end
