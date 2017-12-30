@@ -2,6 +2,7 @@ require 'rubygems'
 require 'puppetlabs_spec_helper/rake_tasks'
 require 'puppet-lint/tasks/puppet-lint'
 require 'puppet_blacksmith/rake_tasks'
+
 PuppetLint.configuration.send('disable_80chars')
 PuppetLint.configuration.ignore_paths = ['spec/**/*.pp', 'pkg/**/*.pp']
 
@@ -29,20 +30,20 @@ task :gen_nodeset do
 
   suts = supported_oses.map do |o|
     operatingsystem = o['operatingsystem'].sub('OracleLinux','Oracle').downcase
-    o['operatingsystemrelease'].map do |r|
-      operatingsystemrelease = r.sub('.','')
-      operatingsystem + operatingsystemrelease + '-64a{hypervisor=docker}'
+    o['operatingsystemrelease'].map do |operatingsystemrelease|
+      operatingsystem +
+      operatingsystemrelease.sub('.','') +
+      '-64a{hypervisor=docker,image=' + operatingsystem + ':' + operatingsystemrelease + ',docker_cmd=/usr/sbin/init,docker_image_commands=[yum install -y crontabs tar wget openssl sysvinit-tools iproute which initscripts]}'
     end
   end.flatten
 
   suts.each do |sut|
-    cli = BeakerHostGenerator::CLI.new(['--global-config','{type=oss}',sut])
-    nodeset_dir = "tmp/mynodesets"
-    nodeset = "#{nodeset_dir}/#{sut}-#{SecureRandom.uuid}.yaml"
+    cli = BeakerHostGenerator::CLI.new(['--global-config','{type=foss}',sut])
+    nodeset_dir = "spec/acceptance/nodesets"
+    nodeset = "#{nodeset_dir}/#{sut}-#{SecureRandom.uuid}.yml".sub! /{.*}/, ''
     FileUtils.mkdir_p(nodeset_dir)
     File.open(nodeset, 'w') do |fh|
       fh.print(cli.execute)
     end
-    puts nodeset
   end
 end
