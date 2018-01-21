@@ -12,7 +12,9 @@ pipeline {
                 sh 'git config user.email "you@example.com"'
                 sh 'git config user.name "Your Name"'
                 sh 'printenv'
-                sh 'rake spec'
+                sh 'rake spec_prep'
+                sh 'puppet module --list --modulepath=spec/fixtures/modules'
+                sh 'rake spec_standalone'
             }
         }
         stage('Acceptance test') {
