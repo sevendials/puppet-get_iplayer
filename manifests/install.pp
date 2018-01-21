@@ -12,8 +12,8 @@ class get_iplayer::install {
   if $get_iplayer::manage_prereqs {
     # remove ffmpeg if libav-tools is installing
     $prereqs = $get_iplayer::prereqs.member('libav-tools') ? {
-      true  => $prereqs.delete('ffmpeg'),
-      false => $prereqs,
+      true  => $get_iplayer::prereqs.delete('ffmpeg'),
+      false => $get_iplayer::prereqs,
     }
     each($prereqs) | String $resource | {
       ensure_resource('package', $resource)
