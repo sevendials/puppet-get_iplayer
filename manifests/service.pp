@@ -1,5 +1,5 @@
 # manage get_iplayer service
-class get_iplayer::service inherits get_iplayer {
+class get_iplayer::service {
 
   service { 'get_iplayer':
     ensure   => $get_iplayer::service_enable,

@@ -1,5 +1,5 @@
 # configure get_iplayer
-class get_iplayer::config inherits get_iplayer {
+class get_iplayer::config {
 
   $options_default = {
     'output'      => $get_iplayer::output_dir,

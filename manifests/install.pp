@@ -1,5 +1,5 @@
 # install get_iplayer
-class get_iplayer::install inherits get_iplayer {
+class get_iplayer::install {
 
   $instdir = "${get_iplayer::base_dir}/get_iplayer-${get_iplayer::version}"
 
