@@ -1,9 +1,9 @@
 fixtures:
   forge_modules:
-    epel: stahnma/puppet-module-epel
-    nux: m0byd1ck/puppet-module-nux
-    staging: nanliu/puppet-staging
-    stdlib: puppetlabs/puppetlabs-stdlib
+    epel: stahnma/epel
+    nux: m0byd1ck/nux
+    staging: nanliu/staging
+    stdlib: puppetlabs/stdlib
 
   symlinks:
     get_iplayer: #{source_dir}
